@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="My Mom&apos;s Box">
+  <database-model serializer="dbm" dbms="UNKNOWN" family-id="UNKNOWN" format-version="4.19">
+    <root id="1">
+      <ServerVersion>0.0</ServerVersion>
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <database id="2" parent="1" name="dda-tv"/>
+    <database id="3" parent="1" name="exercice"/>
+    <database id="4" parent="1" name="immo_projet"/>
+    <database id="5" parent="1" name="immobilier"/>
+    <database id="6" parent="1" name="information_schema"/>
+    <database id="7" parent="1" name="le_blog_de_batman"/>
+    <database id="8" parent="1" name="li_energies"/>
+    <database id="9" parent="1" name="mon_site_test"/>
+    <database id="10" parent="1" name="mvc"/>
+    <database id="11" parent="1" name="my_moms_box">
+      <Current>1</Current>
+    </database>
+    <database id="12" parent="1" name="mysql"/>
+    <database id="13" parent="1" name="openstreetmap"/>
+    <database id="14" parent="1" name="performance_schema"/>
+    <database id="15" parent="1" name="projet_php"/>
+    <database id="16" parent="1" name="projetpoo"/>
+    <database id="17" parent="1" name="revision_php"/>
+    <database id="18" parent="1" name="test"/>
+    <database id="19" parent="1" name="vtc"/>
+    <database id="20" parent="1" name="wordpress"/>
+    <database id="21" parent="1" name="wp_momsbox"/>
+    <schema id="22" parent="11">
+      <Current>1</Current>
+    </schema>
+    <table id="23" parent="22" name="doctrine_migration_versions"/>
+    <table id="24" parent="22" name="user"/>
+    <column id="25" parent="23" name="version">
+      <Position>1</Position>
+      <DataType>VARCHAR(191)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="23" name="executed_at">
+      <Position>2</Position>
+      <DataType>DATETIME(19)|93s</DataType>
+    </column>
+    <column id="27" parent="23" name="execution_time">
+      <Position>3</Position>
+      <DataType>INT(10)|4s</DataType>
+    </column>
+    <index id="28" parent="23" name="PRIMARY">
+      <ColNames>version</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="29" parent="23" name="PRIMARY">
+      <ColNames>version</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="31" parent="24" name="email">
+      <Position>2</Position>
+      <DataType>VARCHAR(180)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="24" name="roles">
+      <Position>3</Position>
+      <DataType>JSON(1073741824)|-1s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="24" name="password">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="34" parent="24" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="35" parent="24" name="UNIQ_8D93D649E7927C74">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="36" parent="24" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="37" parent="24" name="UNIQ_8D93D649E7927C74">
+      <ColNames>email</ColNames>
+    </key>
+  </database-model>
+</dataSource>

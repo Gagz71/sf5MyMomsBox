@@ -1,12 +1,188 @@
-<!DOCTYPE html>
-<html>
+{% set currentRoute = app.request.attributes.get('_route') %}
+
+<!doctype html>
+<html lang="fr">
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="My Mom's Box, l'alliée des mamans">
+    <title>{% block title %}Nouvelle page{% endblock %} - My Mom's Box</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('assets/css/style-base-home.css') }}">
+    <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+        <header>
+            <!--Ma navbar-->
+            <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse flex-column" id="navbarTogglerDemo01">
+        
+                    <!--Mes boutons de connexion et de panier-->
+                    <div class="nav-log-basket d-flex">
+                        <div class="space-login-btn  d-flex flex-column">
+                            <span class="infos-log font-helvetica-thin">Déjà abonné(e) ? Connectez-vous à votre espace My Mom's Box</span>
+                            
+                            <a class="nav-log-btn font-allura " href="#">
+                                <img src="{{ asset('img/icons8-femme-à-ordinateur-30.png') }}" alt="icone login">
+                                Me connecter
+                            </a>
+                        </div>
+                        <div class="basket">
+                            <a href="" class="nav-log-btn font-allura basket-link-nav">
+                                <img src="{{ asset('img/icons8-sac-de-courses-30.png') }}" alt="icone panier"> Mon panier
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!--Mon logo et mon slogan-->
+                    <div class="d-flex flex-column m-auto main-slogo">
+                        <a class="navbar-brand font-allura slogo" href="#">MY MOM'S B
+                            <img src="{{ asset('img/moms_box_white_sans_lumière.png') }}" class="d-inline-block
+                            align-top" width="40" height="40" alt="" loading="lazy">
+                                                                           X
+                            <hr>
+                            <span class="slogan">L'alliée des mamans</span>
+                        </a>
+                    </div>
+        
+                    <!--Mon menu principal-->
+                    <div class="main-nav d-flex">
+                        <ul class="navbar-nav font-helvetica-thin ">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Nos Boxs</a>
+                            </li>
+                
+                            <li class="nav-item">
+                                <a class=" nav-link" href="#">
+                                    Je m'abonne</a>
+                            </li>
+                
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">J'offre</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Boutique</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    A Propos
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Le concept</a>
+                                    <a class="dropdown-item" href="#">Nous connaître</a>
+                                </div>
+                            </li>
+                        </ul>
+        
+                    </div>
+    
+                </div>
+
+
+            </nav>
+        </header>
+
+    <main role="main">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>Example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1>One more for good measure.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        {% block content %}
+        {% endblock %}
+
+    </div><!-- /.container -->
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</main>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+</body>
 </html>

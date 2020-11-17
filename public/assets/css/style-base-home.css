@@ -1,0 +1,81 @@
+/*Déclarations polices d'écriture*/
+@font-face{
+    font-family: "Helvetica NeueThin";
+    src: url("../fonts/HelveticaNeue Thin.ttf");
+}
+@font-face {
+    font-family: "Allura";
+    src: url("../fonts/Allura-Regular.ttf");
+}
+
+/*Mes classes générales*/
+.font-allura{
+    font-family: "Allura", cursive;
+}
+
+.font-helvetica-thin{
+    font-family: "Helvetica NeueThin";
+}
+
+/*P.Base*/
+.nav-log-basket{
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-between;
+}
+.nav-log-btn {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+.nav-log-btn:hover{
+    color: darkgoldenrod;
+    text-decoration: none;
+}
+.infos-log{
+    font-size: 13px;
+}
+.slogo{
+    font-size: 2.2rem;
+    padding: 0;
+}
+.slogan{
+    font-size: 2rem;
+    letter-spacing: 1px;
+    position: relative;
+    left: 35px;
+    top: -15px;
+}
+.infos-co{
+    font-size: 15px;
+}
+.main-nav{
+    width: 100%;
+    line-height: 1;
+}
+.main-slogo{
+    line-height: 1;
+}
+div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
+    justify-content: space-evenly;
+    width: 100%;
+}
+.nav-link{
+    color: black;
+}
+.nav-link:hover{
+    color: darkgoldenrod;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: darkgoldenrod;
+}
+.dropdown-menu{
+    background-color: #f8f9fa;
+}
+.dropdown-item{
+    background-color: #f8f9fa;
+}
+.dropdown-item:hover{
+    background-color: #f8f9fa;
+    color: darkgoldenrod;
+}
