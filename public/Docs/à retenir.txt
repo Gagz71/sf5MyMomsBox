@@ -1,0 +1,11 @@
+Entity Order et OrderDetails
+
+Order => infos de base des commandes => utilisateur lié, transporteur, etc ..
+
+orderDetails => ensemble du panier => produits, quantités, totals
+
+
+CSS
+Couleur doré => #B2961D
+
+#EDDD8F

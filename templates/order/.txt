@@ -1,0 +1,10 @@
+public function addSusbcription(Product $product)
+    {
+        $products = $this->getProducts();
+
+        if (!in_array($product, $products)) {
+            $products[] = $product;
+        }
+
+        $this->updateProducts($products);
+    }

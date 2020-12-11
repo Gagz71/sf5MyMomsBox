@@ -4,6 +4,14 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    # %kernel.project_dir% = dossier "public"
+    app.path.product_illustrations: 'uploads/files/'
+    stripe_publishable_key: '%env(STRIPE_PUBLISHABLE_KEY)%'
+    stripe_secret_key: '%env(STRIPE_SECRET_KEY)%'
+    app.param.subscribe.month.price: '%env(SUBSCRIPTION_MONTH_PRICE_ID)%'
+    app.param.subscribe.trimester.price: '%env(SUBSCRIPTION_TRIMESTER_PRICE_ID)%'
+    app.param.subscribe.semester.price: '%env(SUBSCRIPTION_SEMESTER_PRICE_ID)%'
+    app.param.subscribe.year.price: '%env(SUBSCRIPTION_YEAR_PRICE_ID)%'
 
 services:
     # default configuration for services in *this* file

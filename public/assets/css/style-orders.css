@@ -1,0 +1,11 @@
+.form-check:hover{
+    background-color: #EDDD8F;
+}
+.col-form-label{
+    font-weight: bold;
+}
+.order-summary{
+    background-color: #EDDD8F;
+    padding: 20px;
+    margin-top: 22px;
+}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block content %}
+    
+    <h1 class="font-allura">Bienvenue dans votre espace My Mom's Box</h1>
+    
+    <p class="font-helvetica-thin">Bonjour {{ app.user.firstname }}. C'est ici que vous allez pouvoir
+                                                  gérer les informations liées à votre compte. </p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="list-group font-helvetica-thin">
+                <a href="{{ path('account_password') }}" class="list-group-item list-group-item-action">
+                    Modifier mon mot de passe
+                </a>
+                <a href="{{ path('account_address') }}" class="list-group-item list-group-item-action">Gérer mes adresses de livraisons</a>
+                <a href="{{ path('my_subscription') }}" class="list-group-item list-group-item-action">Mon abonnement</a>
+                <a href="#" class="list-group-item list-group-item-action">Ma photo</a>
+                <a href="#" class="list-group-item list-group-item-action">Mes commandes</a>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}

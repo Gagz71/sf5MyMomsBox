@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Je m'abonne{% endblock %}
+
+{% block javascript %}
+<script src="https://js.stripe.com/v3/"></script>
+
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="font-allura text-center">Je m'abonne mensuellement à My Mom's Box</h1>
+
+    <a href="{{ path('show_subscriptions') }}" class="hvr-icon-back"><i class="fa fa-chevron-circle-left hvr-icon"></i> Retour</a>
+
+    <hr>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+
+
+
+{% endblock %}

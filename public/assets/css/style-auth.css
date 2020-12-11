@@ -1,0 +1,61 @@
+/*Page login*/
+div.form-group.text-center label{
+    display: flex;
+    flex-direction: column;
+}
+
+/*P. mon-compte/adresses*/
+/* Icon Back */
+.hvr-icon-back {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    color: black;
+    font-family: "Helvetica NeueThin";
+    text-decoration: none;
+}
+.hvr-icon-back:hover{
+    color: #B2961D;
+    text-decoration: none;
+}
+.hvr-icon-back .hvr-icon {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-icon-back:hover .hvr-icon, .hvr-icon-back:focus .hvr-icon, .hvr-icon-back:active .hvr-icon {
+    -webkit-transform: translateX(-4px);
+    transform: translateX(-4px);
+}
+
+
+
+/*Page abonnement*/
+.bg-subscribes{
+    background-image: url("../img/moms_box_3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 270px;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.elegantshadow{
+    color: black;
+    letter-spacing: 0.15em;
+    text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d;
+    font-size: 4.5rem;
+    position: relative;
+    top: 1em;
+}

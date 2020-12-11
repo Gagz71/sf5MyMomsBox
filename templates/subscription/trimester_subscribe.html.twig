@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon abonnement trimestriel{% endblock %}
+
+{% block javascript %}
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="font-allura">Je choisis l'abonnement trimestriel</h1>
+
+    <button id="checkout-btn-price-trimester">Je confirme ma commande</button>
+
+{% endblock %}
+
+{% block script %}
+
+    <script type="text/javascript">
+        var createCheckoutSession = function(priceId) {
+            return fetch("/mon-compte/je-m-abonne-trimestriel/create-session", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    priceId: priceId
+                })
+            }).then(function(result) {
+                return result.json();
+            });
+        };
+
+
+        var stripe = Stripe("pk_test_51HuFssLrKb2GsnXLvu61PHN3nMvmzFao73y4OJvZL5HnbvZrppyWJos8IkojsRSHHyYkEG5UaGURDKoQuvpir1Q8003rzxex6x");
+
+        var PriceId = 'price_1Hv3jgLrKb2GsnXLLGjs3UmJ';
+        document
+            .getElementById("checkout-btn-price-trimester")
+            .addEventListener("click", function(evt) {
+                createCheckoutSession(PriceId).then(function(data) {
+                    // Call Stripe.js method to redirect to the new Checkout page
+                    stripe
+                        .redirectToCheckout({
+                            sessionId: data.sessionId
+                        })
+                        .then(handleResult);
+                });
+            });
+
+    </script>
+
+{% endblock %}
