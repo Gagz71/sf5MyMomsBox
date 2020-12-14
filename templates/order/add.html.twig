@@ -19,13 +19,7 @@
                 {{ delivery|raw }}
             </div>
             <hr>
-            Mon transporteur (à remplacer par abonnement)
-            <div class="form-check font-helvetica-thin mt-4">
-                {{ carrier.name }} <br>
-                {{ carrier.description }} <br>
-                {{ carrier.price|number_format(2) }} <br>
 
-            </div>
 
 
 
@@ -65,9 +59,7 @@
 
             <hr>
             <div class="font-helvetica-bold float-right">
-                <p>Sous-total: <span class="font-helvetica-thin">{{ (total / 100)|number_format(2) }}€</span></p>
-                <p>Livraison: <span class="font-helvetica-thin">{{ (carrier.price)|number_format(2) }}€</span></p>
-                <p>Total : <span class="font-helvetica-thin">{{ ((total/100) + carrier.price)|number_format(2) }}€</span></p>
+                <p>Total : <span class="font-helvetica-thin">{{ (total / 100)|number_format(2) }}€</span></p>
                 <a class="btn btn-outline-info" id="checkout-button"
                    title="Payer la commande">Je paie ma commande</a>
             </div>
@@ -89,7 +81,7 @@
         var checkoutButton = document.getElementById("checkout-button");
 
         checkoutButton.addEventListener("click", function () {
-            fetch("/ma-commande/create-session", {
+            fetch("/ma-commande/create-session/{{ reference }}", {
                 method: "POST",
             })
 
@@ -98,7 +90,11 @@
                 })
 
                 .then(function (session) {
-                    return stripe.redirectToCheckout({ sessionId: session.id });
+                    if(session.error == 'order'){
+                        window.location.replace('{{ path('order') }}');
+                    } else{
+                        return stripe.redirectToCheckout({ sessionId: session.id });
+                    }
                 })
 
                 .then(function (result) {

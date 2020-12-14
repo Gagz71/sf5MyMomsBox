@@ -17,7 +17,7 @@
 
     <script type="text/javascript">
         var createCheckoutSession = function(priceId) {
-            return fetch("/mon-compte/je-m-abonne-semestriel/create-session", {
+            return fetch("/mon-compte/je-m-abonne-semestriel/create-session/{{ reference }}", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

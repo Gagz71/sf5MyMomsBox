@@ -9,167 +9,153 @@
 {% block content %}
 
     <div class="bg-subscribes pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto ">
-            <h1 class="font-allura elegantshadow">Je m'abonne à My Mom's Box</h1>
+            <h1 class="font-allura elegantshadow text-center">Je m'abonne à My Mom's Box</h1>
     </div>
 
-    <div class="row">
+    <div class="row mt-5">
+        <h2 class="font-helvetica-thin text-uppercase m-auto">Comment ça marche ?</h2>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-sm-3">
+            <img src="{{ asset('assets/img/femme_assise_ordi_profil.png') }}" alt="" class="img-thumbnail gold-shadow gold-shadow">
+            <p class="font-helvetica-thin text-center">Je m'inscris sur My Mom's Box.fr et choisis l'abonnement qui me correspond le mieux !</p>
+        </div>
+        <div class="col-sm-3 offset-1">
+            <img src="{{ asset('assets/img/livraison_moms_box_parachute_porte.png') }}" alt="" class="img-thumbnail gold-shadow">
+            <p class="text-center font-helvetica-thin">Je suis livrée rapidement à l'adresse de livraison indiquée, sans payer aucun frais de port !</p>
+        </div>
+        <div class="col-sm-3 offset-1">
+            <img src="{{ asset('assets/img/moms_box_open_fond_transparent.png') }}" alt="" class="img-thumbnail gold-shadow">
+            <p class="text-center font-helvetica-thin">Je n'attends plus pour profiter tous les mois de My Mom's Box !</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
         <div class="col-sm-12"><h2 class="pricing-header text-center uppercase font-helvetica-thin">Choisissez l'abonnement qui vous correspond le plus !</h2></div>
     </div>
 
-    <div class="row font-helvetica-thin">
-        <div class="col-sm-6">
-            <div class="card border-success">
-                <div class="card-body">
-                    <h5 class="card-title">{{monthlySubscribe.name}}</h5>
-                    <p class="card-text">{{ monthlySubscribe.description|raw }}</p>
-                    <p class="card-text text-center">{{ (monthlySubscribe.price / 100)|number_format(2) }} €/mois</p>
-                    <a class="btn btn-outline-info btn-price-monthly" href="{{ path('monthly_subscribe') }}">Je choisis cet abonnement</a>
+    <div class="row mt-5">
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card__side card__side--front-1">
+                    <div class="card__title card__title--1">
+                        <h4 class="card__heading">Abonnement {{monthlySubscribe.name}}</h4>
+                    </div>
+                    <div class="card__details font-helvetica-thin">
+                            {{ monthlySubscribe.description|raw }}
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-1">
+                    <div class="card__cta">
+                        <div class="card__price-box font-helvetica-thin">
+                            <p class="card__price-only">Seulement</p>
+                            <p class="card__price-value">{{ (monthlySubscribe.price / 100)|number_format(2) }} €/mois</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-experiment">
+                        <a href="{{ path('monthly_subscribe') }}" class="">
+                            <span class="a-text text-center">Je choisis cet abonnement</span>
+                            <span class="line -right"></span>
+                            <span class="line -top"></span>
+                            <span class="line -left"></span>
+                            <span class="line -bottom"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card border-success">
-                <div class="card-body">
-                    <h5 class="card-title">{{trimesterSubscribe.name}}</h5>
-                    <p class="card-text">{{ trimesterSubscribe.description|raw }}</p>
-                    <p class="card-text text-center">{{ (trimesterSubscribe.price / 100)|number_format(2) }} €/mois</p>
-                    <a href="{{ path('trimester_subscribe') }}" class="btn btn-outline-info btn-price-trimester">Je choisis cet abonnement</a>
+
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card__side card__side--front-2">
+                    <div class="card__title card__title--2">
+                        <h4 class="card__heading">Abonnement {{ trimesterSubscribe.name }}</h4>
+                    </div>
+                    <div class="card__details font-helvetica-thin">
+                        {{ trimesterSubscribe.description|raw }}
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-2">
+                    <div class="card__cta">
+                        <div class="card__price-box font-helvetica-thin">
+                            <p class="card__price-only">Je paie tous les 3 mois, seulement</p>
+                            <p class="card__price-value">{{ (trimesterSubscribe.price / 100)|number_format(2) }} €</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-experiment">
+                        <a href="{{ path('trimester_subscribe') }}" class="">
+                            <span class="a-text text-center">Je choisis cet abonnement</span>
+                            <span class="line -right"></span>
+                            <span class="line -top"></span>
+                            <span class="line -left"></span>
+                            <span class="line -bottom"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card__side card__side--front-3">
+                    <div class="card__title card__title--3">
+                        <h4 class="card__heading">Abonnement {{ semesterSubscribe.name }}</h4>
+                    </div>
+                    <div class="card__details font-helvetica-thin">
+                        {{ semesterSubscribe.description|raw }}
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-3">
+                    <div class="card__cta">
+                        <div class="card__price-box font-helvetica-thin">
+                            <p class="card__price-only">Je paie seulement 2 fois/an !</p>
+                            <p class="card__price-value">{{ (semesterSubscribe.price / 100)|number_format(2) }} €</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-experiment">
+                        <a href="{{ path('semester_subscribe') }}" class="">
+                            <span class="a-text text-center">Je choisis cet abonnement</span>
+                            <span class="line -right"></span>
+                            <span class="line -top"></span>
+                            <span class="line -left"></span>
+                            <span class="line -bottom"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="card">
+                <div class="card__side card__side--front-4">
+                    <div class="card__title card__title--4">
+                        <h4 class="card__heading">Abonnement {{ yearSubscribe.name }}</h4>
+                    </div>
+                    <div class="card__details font-helvetica-thin">
+                        {{ yearSubscribe.description|raw }}
+                    </div>
+                </div>
+                <div class="card__side card__side--back card__side--back-4">
+                    <div class="card__cta">
+                        <div class="card__price-box font-helvetica-thin">
+                            <p class="card__price-only">Je paie 1 fois, et j'en profite tous les mois !</p>
+                            <p class="card__price-value">{{ (yearSubscribe.price / 100)|number_format(2) }} €</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-experiment">
+                        <a href="{{ path('year_subscribe') }}" class="">
+                            <span class="a-text text-center">Je choisis cet abonnement</span>
+                            <span class="line -right"></span>
+                            <span class="line -top"></span>
+                            <span class="line -left"></span>
+                            <span class="line -bottom"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mt-4 font-helvetica-thin">
-        <div class="col-sm-6">
-            <div class="card border-success">
-                <div class="card-body">
-                    <h5 class="card-title">{{semesterSubscribe.name}}</h5>
-                    <p class="card-text">{{ semesterSubscribe.description|raw }}</p>
-                    <p class="card-text text-center">{{ (semesterSubscribe.price / 100)|number_format(2) }} €/mois</p>
-                    <a href="{{ path('semester_subscribe') }}" class="btn btn-outline-info btn-price-semester">Je choisis cet abonnement</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card border-success">
-                <div class="card-body">
-                    <h5 class="card-title">{{yearSubscribe.name}}</h5>
-                    <p class="card-text">{{ yearSubscribe.description|raw }}</p>
-                    <p class="card-text text-center">{{ (yearSubscribe.price / 100)|number_format(2) }} €/mois</p>
-                    <a href="{{ path('year_subscribe') }}" class="btn btn-outline-info btn-price-year">Je choisis cet abonnement</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="section-plans bg-light" id="section-plans">
-        <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                Hosting Plans
-            </h2>
-        </div>
-
-
-
-
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card__side card__side--front-1">
-                        <div class="card__title card__title--1">
-                            <i class="fas fa-paper-plane"></i>
-                            <h4 class="card__heading">Basic</h4>
-                        </div>
-
-                        <div class="card__details">
-                            <ul>
-                                <li>1 Website</li>
-                                <li>50 GB SSD Storage</li>
-                                <li>Unmetered Bandwidth</li>
-                                <li>Free SSL Certificate</li>
-                                <li>1 Included Domain</li>
-                                <li>1 Included Domain</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card__side card__side--back card__side--back-1">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Only</p>
-                                <p class="card__price-value">$2.95/mo*</p>
-                            </div>
-                            <a href="#popup" class="btn btn--white">Select</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card__side card__side--front-2">
-                        <div class="card__title card__title--2">
-                            <i class="fas fa-plane"></i>
-                            <h4 class="card__heading">Plus</h4>
-                        </div>
-
-                        <div class="card__details">
-                            <ul>
-                                <li>Includes Basic Package Features</li>
-                                <li>Unlimited Websites</li>
-                                <li>Unlimited SSD Storage</li>
-                                <li>Unlimited Domains</li>
-                                <li>Unlimited Parked Domains</li>
-                                <li>Unlimited Sub Domains</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card__side card__side--back card__side--back-2">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Only</p>
-                                <p class="card__price-value">$5.45/mo*</p>
-                            </div>
-                            <a href="#popup" class="btn btn--white">Select</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card__side card__side--front-3">
-                        <div class="card__title card__title--3">
-                            <i class="fas fa-rocket"></i>
-                            <h4 class="card__heading">Pro</h4>
-                        </div>
-
-                        <div class="card__details">
-                            <ul>
-                                <li>Includes Plus Plan Features</li>
-                                <li>High Performance</li>
-                                <li>2 Spam Experts</li>
-                                <li>Free SSL Certificate</li>
-                                <li>Domain Privacy</li>
-                                <li>Site Backup - CodeGuard Basic</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card__side card__side--back card__side--back-3">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Only</p>
-                                <p class="card__price-value">$13.95/mo</p>
-                            </div>
-                            <a href="#popup" class="btn btn--white">Select</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="u-center-text u-margin-top-huge">
-            <a href="#" class="btn btn--green">Get Started</a>
-        </div>
-    </section>
 {% endblock %}
 
 {% block script %}

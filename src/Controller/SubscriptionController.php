@@ -57,17 +57,20 @@ class SubscriptionController extends AbstractController
         $user = $this->getUser();
         //Création et hydratation du nouvel abonnement
         $newSubscription = new Subscription();
+        $date = new \DateTime();
+        $reference = $date->format('dmY').'-'.uniqid();
+        $newSubscription->setReference($reference);
         $newSubscription->setName($monthly_subscribe->getName());
         $newSubscription->setPrice($monthly_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3ioLrKb2GsnXLxBdgERHd');
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
-        //$this->entityManager->flush();
+        $this->entityManager->flush();
 
-
-
-        return $this->render('subscription/monthly_subscribe.html.twig');
+        return $this->render('subscription/monthly_subscribe.html.twig', [
+            'reference' => $newSubscription->getReference()
+        ]);
     }
 
     /**
@@ -81,15 +84,20 @@ class SubscriptionController extends AbstractController
         $user = $this->getUser();
         //Création et hydratation du nouvel abonnement
         $newSubscription = new Subscription();
+        $date = new \DateTime();
+        $reference = $date->format('dmY').'-'.uniqid();
+        $newSubscription->setReference($reference);
         $newSubscription->setName($trimester_subscribe->getName());
         $newSubscription->setPrice($trimester_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3jgLrKb2GsnXLLGjs3UmJ');
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
-        //$this->entityManager->flush();
+        $this->entityManager->flush();
 
-        return $this->render('subscription/trimester_subscribe.html.twig');
+        return $this->render('subscription/trimester_subscribe.html.twig', [
+            'reference' => $newSubscription->getReference()
+        ]);
     }
 
     /**
@@ -103,15 +111,20 @@ class SubscriptionController extends AbstractController
         $user = $this->getUser();
         //Création et hydratation du nouvel abonnement
         $newSubscription = new Subscription();
+        $date = new \DateTime();
+        $reference = $date->format('dmY').'-'.uniqid();
+        $newSubscription->setReference($reference);
         $newSubscription->setName($semester_subscribe->getName());
         $newSubscription->setPrice($semester_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3kKLrKb2GsnXLcsV4Qi8Z');
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
-        //$this->entityManager->flush();
+        $this->entityManager->flush();
 
-        return $this->render('subscription/semester_subscribe.html.twig');
+        return $this->render('subscription/semester_subscribe.html.twig', [
+            'reference' => $newSubscription->getReference()
+        ]);
     }
 
     /**
@@ -125,24 +138,21 @@ class SubscriptionController extends AbstractController
         $user = $this->getUser();
         //Création et hydratation du nouvel abonnement
         $newSubscription = new Subscription();
+        $date = new \DateTime();
+        $reference = $date->format('dmY').'-'.uniqid();
+        $newSubscription->setReference($reference);
         $newSubscription->setName($year_subscribe->getName());
         $newSubscription->setPrice($year_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3jgLrKb2GsnXLLGjs3UmJ');
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
-        //$this->entityManager->flush();
+        $this->entityManager->flush();
 
-        return $this->render('subscription/year_subscribe.html.twig');
+        return $this->render('subscription/year_subscribe.html.twig', [
+            'reference' => $newSubscription->getReference()
+        ]);
     }
-
-    /**
-     * Route("/success", name="stripe_success")
-     */
-    public function stripeSuccess()
-    {
-        return $this->render('subscription/success.html.twig');
-    }
-
+    
 
 }

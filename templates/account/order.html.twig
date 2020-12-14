@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes{% endblock %}
+
+{% block content %}
+
+    <h1 class="font-allura">Mes commandes</h1>
+
+    <p class="font-helvetica-thin">C'est dans cet espace que vous allez pouvoir
+        gérer toutes vos commandes. </p>
+    <a href="{{ path('account') }}" class="hvr-icon-back"><i class="fa fa-chevron-circle-left hvr-icon"></i> Retour</a>
+
+
+    <hr>
+
+    {% if app.user.orders|length == 0 %}
+        <p class="text-center">
+            Vous n'avez pas encore aucune commandes My Mom's Box passées. <br>
+            <a href="{{ path('products') }}" title="Visitez notre boutique">Cliquez-ici </a>pour visiter notre boutique.</p>
+    {% else %}
+        <table class="table table-hover table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in app.user.orders %}
+                {{ dump(order) }}
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    {% endif %}
+
+{% endblock %}

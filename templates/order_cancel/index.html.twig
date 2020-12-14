@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de paiement{% endblock %}
+
+{% block content %}
+    <h1 class="font-allura text-center">Erreur de paiement</h1>
+
+    <p class="font-helvetica-thin">Mr./Mme <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong> </p>
+
+    <p class="font-helvetica-thin">My Mom's Box vous remercie de votre commande <strong> n° {{ order.reference }}</strong>.</p>
+    <p class="font-helvetica-thin">Malheureusement votre paiement a échoué. Votre commande n'a pu aboutir. </p>
+    <p class="font-helvetica-thin">My Mom's Box vous invite à réessayer avec un autre moyen de paiement.</p>
+
+    <a href="{{ path('order') }}">Réessayer</a>
+    <hr>
+
+    <p class="font-helvetica-thin">Rendez vous dans votre <a href="{{ path('account') }}">compte</a> pour suivre vos commandes.</p>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de votre abonnement{% endblock %}
+
+{% block content %}
+
+    <h1 class="font-allura text-center">Votre abonnement est confirmé</h1>
+
+    <p class="font-helvetica-thin">Mr./Mme <strong>{{ subscription.user.firstname }} {{ subscription.user.lastname }}</strong> </p>
+
+    <p class="font-helvetica-thin">My Mom's Box vous remercie de votre commande <strong> n° {{ subscription.reference }}</strong>.</p>
+    <p class="font-helvetica-thin">Votre abonnement <strong>{{ subscription.name }} </strong> démarre sans plus attendre !</p>
+    <p class="font-helvetica-thin">Votre première Mom's Box vous sera livrée incessemment sous peu à l'adresse de livraison choisi.</p>
+    <p class="font-helvetica-thin">Une confirmation vient de vous être envoyé par e-mail à l'adresse <strong>{{ subscription.user.email }}</strong> </p>
+
+    <hr>
+
+    <p class="font-helvetica-thin">Rendez vous dans votre <a href="{{ path('account') }}">compte</a> pour suivre vos commandes.</p>
+
+{% endblock %}

@@ -80,9 +80,9 @@ class OrderController extends AbstractController
                 $customer->save();
             }
 
+            //Récupération de la date du jour
             $date = new \DateTime();
-            //Récupération du transporteur
-            $carriers = $form->get('carriers')->getData();
+
             //récupération de l'adresse de livraison
             $delivery = $form->get('addresses')->getData();
             $deliveryContent = $delivery->getFirstname().' '.$delivery->getLastname();
@@ -102,10 +102,10 @@ class OrderController extends AbstractController
             //Enregistrement de la commande => Order()
             $order = new Order();
 
+            $reference = $date->format('dmY').'-'.uniqid();
+            $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
-            $order->setCarrierName($carriers->getName());
-            $order->setCarrierPrice($carriers->getPrice());
             $order->setDelivery($deliveryContent);
             $order->setIsPaid(0);
 
@@ -123,10 +123,11 @@ class OrderController extends AbstractController
                 $this->entityManager->persist($orderDetails);
             }
             $this->entityManager->flush();
+
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
-                'carrier' => $carriers,
                 'delivery' => $deliveryContent,
+                'reference' => $order->getReference()
             ]);
         }
         return  $this->redirectToRoute('cart');

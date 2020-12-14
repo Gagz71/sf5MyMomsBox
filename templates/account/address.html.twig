@@ -18,7 +18,7 @@
     {% if app.user.addresses|length == 0 %}
         <p class="text-center">
         Vous n'avez pas encore ajouté d'adresses de livraisons.
-        Veuillez <a href="" title="Ajouter une adresse"> cliquez-ici </a>pour en ajouter une.</p>
+        Veuillez <a href="{{ path('account_address_add') }}" title="Ajouter une adresse"> cliquez-ici </a>pour en ajouter une.</p>
     {% else %}
         <div class="row">
             {% for address in app.user.addresses %}

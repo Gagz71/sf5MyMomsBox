@@ -23,69 +23,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e79bb33b-f730-4d0e-ac74-7f553ca79138" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Docs/à retenir.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/style-auth.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/style-orders.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/style-products.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/style-subscriptions.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AppBundle/Subscription/SubscriptionHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Classe/Cart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Classe/Search.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EventSubscriber/EasyAdminSubscriber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/SearchType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/address.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/address_add.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/password.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/order/add.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/subscription/monthly_subscribe.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/subscription/semester_subscribe.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/subscription/show_subscribes.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/subscription/subscribe.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/subscription/trimester_subscribe.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/subscription/year_subscribe.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MyMomsBox.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyMomsBox.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e80882e7-2f83-4a20-a52d-28688e976f90.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/order.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/subscription.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3cdfa8f7-2659-4c7b-a4a0-e0e05abfee90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3cdfa8f7-2659-4c7b-a4a0-e0e05abfee90.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201111165431.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/carousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style-base-home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-base-home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Allura-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/Helvetica Neu Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeue BlackCond.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeue Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeue Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeue Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeue.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeueBd.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeueHv.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeueIt.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeueLt.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/HelveticaNeueMed.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/freefontsdownload.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/helveticaneue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons8-femme-à-ordinateur-30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons8-sac-de-courses-30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/icons8-utilisateur-30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/moms_box_white_sans_lumière.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style-auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-auth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style-subscriptions.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-subscriptions.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AccountAddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountAddressController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/OrderCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/OrderCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StripeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StripeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SubscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SubscriptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Subscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Subscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/OrderType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OrderType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/account.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/account.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/address.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/address.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/order/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/order/order.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/order.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/monthly_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/monthly_subscribe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/semester_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/semester_subscribe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/show_subscribes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/show_subscribes.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/trimester_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/trimester_subscribe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/year_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/year_subscribe.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +189,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
@@ -277,6 +239,9 @@
       <workItem from="1607163626743" duration="46196000" />
       <workItem from="1607418222861" duration="59926000" />
       <workItem from="1607594119799" duration="28210000" />
+      <workItem from="1607682143826" duration="20353000" />
+      <workItem from="1607860737938" duration="13184000" />
+      <workItem from="1607956212085" duration="8625000" />
     </task>
     <servers />
   </component>

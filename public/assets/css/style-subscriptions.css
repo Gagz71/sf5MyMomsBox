@@ -1,17 +1,41 @@
-.u-center-text {
-    text-align: center !important;
+.col-sm-2{
+    margin-left: 4.5%;
+}
+.card{
+    border: none;
+}
+.img-thumbnail{
+    height: 301px;
+    border: none;
+}
+.gold-shadow:hover{
+    -webkit-box-shadow: -1px -1px 18px 0px rgba(184, 134, 11, 0.75);
+    -moz-box-shadow:    -1px -1px 18px 0px rgba(184, 134, 11, 0.75);
+    box-shadow:         -1px -1px 18px 0px rgba(184, 134, 11, 0.75);
+}
+.a-text{
+    color: black;
+}
+/*Page abonnement*/
+.bg-subscribes{
+    background-image: url("../img/moms_box_3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 230px;
+    width: 95%;
 }
 
-.u-margin-bottom-small {
-    margin-bottom: 1.5rem !important;
+.card-deck .card {
+    min-width: 220px;
 }
 
-.u-margin-bottom-medium {
-    margin-bottom: 4rem !important;
-}
-
-.u-margin-top-big {
-    margin-top: 5rem !important;
+.elegantshadow{
+    color: black;
+    letter-spacing: 0.15em;
+    text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d;
+    font-size: 4.5rem;
+    position: relative;
+    top: 1em;
 }
 
 .heading-primary {
@@ -123,20 +147,16 @@
     box-sizing: inherit;
 }
 
-.section-plans {
-    padding: 4rem 0 4rem 0;
-}
-
 .card {
     -webkit-perspective: 150rem;
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
-    height: 52rem;
+    height: 20rem;
 }
 
 .card__side {
-    height: 52rem;
+    height: 20rem;
     -webkit-transition: all 0.8s ease;
     transition: all 0.8s ease;
     position: absolute;
@@ -156,16 +176,19 @@
 }
 
 .card__side--front-1 {
-    background: linear-gradient(-45deg, #f403d1, #64b5f6);
+    background: linear-gradient(45deg, rgba(202,123,17,1) 0%, rgba(255,212,124,1) 35%, rgba(255,251,236,1) 96%);
 }
 
 .card__side--front-2 {
-    background: linear-gradient(-45deg, #f321d7, #ffec61);
+    background: linear-gradient(45deg, rgba(73,71,12,1) 0%, rgba(255,212,124,1) 35%, rgba(250,128,10,1) 96%);
 }
 
 .card__side--front-3 {
-    background: linear-gradient(-45deg, #24ff72, #9a4eff);
+    background: linear-gradient(45deg, rgba(202,123,17,1) 0%, rgba(178,150,29,1) 35%, rgba(158,114,0,1) 96%);
 }
+.card__side--front-4 {
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(178,150,29,1) 35%, rgba(255,255,255,1) 96%);}
+
 
 .card__side--back {
     -webkit-transform: rotateY(180deg);
@@ -173,20 +196,23 @@
 }
 
 .card__side--back-1 {
-    background: linear-gradient(-45deg, #64b5f6, #f403d1);
+    background: linear-gradient(45deg, rgba(202,123,17,1) 0%, rgba(255,212,124,1) 35%, rgba(255,251,236,1) 96%);
 }
 
 .card__side--back-2 {
-    background: linear-gradient(-45deg, #ffec61, #f321d7);
+    background: linear-gradient(45deg, rgba(73,71,12,1) 0%, rgba(255,212,124,1) 35%, rgba(250,128,10,1) 96%);
 }
 
 .card__side--back-3 {
-    background: linear-gradient(-45deg, #9a4eff, #24ff72);
+    background: linear-gradient(45deg, rgba(202,123,17,1) 0%, rgba(178,150,29,1) 35%, rgba(158,114,0,1) 96%);
 }
+.card__side--back-4 {
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(178,150,29,1) 35%, rgba(255,255,255,1) 96%);}
 
 .card:hover .card__side--front-1,
 .card:hover .card__side--front-2,
-.card:hover .card__side--front-3 {
+.card:hover .card__side--front-3,
+.card:hover .card__side--front-4 {
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
@@ -197,8 +223,6 @@
 }
 
 .card__title {
-    height: 20rem;
-    padding: 4rem 2rem 2rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -214,25 +238,12 @@
     align-items: center;
 }
 
-.card__title--1 .fas {
-    font-size: 5rem;
-}
-
-.card__title--2 .fas {
-    font-size: 5rem;
-}
-
-.card__title--3 .fas {
-    font-size: 5rem;
-}
-
 .card__heading {
-    font-size: 4rem;
-    font-weight: 300;
-    text-transform: uppercase;
+    font-size: 35px;
     text-align: center;
-    color: #fff;
-    width: 75%;
+    padding-top: 30px;
+    font-weight: bold;
+    font-family: "Allura";
 }
 
 .card__heading-span {
@@ -242,28 +253,11 @@
 }
 
 .card__details {
-    padding: 0 2rem 2rem;
+    padding: 1rem 1rem 2rem;
 }
-
-.card__details ul {
-    list-style: none;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.card__details ul li {
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 1rem;
-}
-
-.card__details ul li:not(:last-child) {
-    border-bottom: 1px solid #eee;
-}
-
 .card__cta {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -273,44 +267,120 @@
 
 .card__price-box {
     text-align: center;
-    color: #fff;
-    margin-bottom: 8rem;
+}
+.portfolio-experiment, .scene {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 55px;
+    left: 20px;
+    right: 20px;
+    justify-content: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
 }
 
-.card__price-only {
-    font-size: 1.4rem;
-    text-transform: uppercase;
+.portfolio-experiment a {
+    color: white;
+    padding: 0.7em calc(0.7em * 1.2);
+    display: inline-block;
+    border: 3px solid transparent;
+    position: relative;
+    cursor: pointer;
+    letter-spacing: 0.07em;
 }
-
-.card__price-value {
-    font-size: 6rem;
-    font-weight: 100;
+.portfolio-experiment a:hover{
+    text-decoration: none;
 }
-
-.row {
-    max-width: 114rem;
-    margin: 0 auto;
+.portfolio-experiment .a-text {
+    font-family: "Helvetica NeueThin";
+    transform: translate3d(0, 0.7em, 0);
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
 }
-
-.row:not(:last-child) {
-    margin-bottom: 5rem;
-    margin-top: 5rem;
+.portfolio-experiment a:after {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: calc(0.7em * 1.2);
+    right: calc(0.7em * 1.2);
+    height: 3px;
+    background: darkgoldenrod;
+    transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+    transform-origin: left;
 }
-
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
+.portfolio-experiment .line {
+    position: absolute;
+    background: darkgoldenrod;
 }
-
-.row [class^="col-"] {
-    float: left;
+.portfolio-experiment .line.-right, .portfolio-experiment .line.-left {
+    width: 3px;
+    bottom: -3px;
+    top: -3px;
+    transform: scale3d(1, 0, 1);
 }
-
-.row [class^="col-"]:not(:last-child) {
-    margin-right: 6rem;
+.portfolio-experiment .line.-top, .portfolio-experiment .line.-bottom {
+    height: 3px;
+    left: -3px;
+    right: -3px;
+    transform: scale3d(0, 1, 1);
 }
-
-.row .col-1-of-3 {
-    width: calc((100% - 2 * 6rem) / 3);
+.portfolio-experiment .line.-right {
+    right: -3px;
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+    transform-origin: top;
+}
+.portfolio-experiment .line.-top {
+    top: -3px;
+    transition: transform 0.08s linear 0.43s;
+    transform-origin: left;
+}
+.portfolio-experiment .line.-left {
+    left: -3px;
+    transition: transform 0.08s linear 0.51s;
+    transform-origin: bottom;
+}
+.portfolio-experiment .line.-bottom {
+    bottom: -3px;
+    transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+    transform-origin: right;
+}
+.portfolio-experiment a:hover .a-text,
+.portfolio-experiment a:active .a-text {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+}
+.portfolio-experiment a:hover:after,
+.portfolio-experiment a:active:after {
+    transform: scale3d(0, 1, 1);
+    right: -3px;
+    left: -3px;
+    transform-origin: right;
+    transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+}
+.portfolio-experiment a:hover .line,
+.portfolio-experiment a:active .line {
+    transform: scale3d(1, 1, 1);
+}
+.portfolio-experiment a:hover .line.-right,
+.portfolio-experiment a:active .line.-right {
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+    transform-origin: bottom;
+}
+.portfolio-experiment a:hover .line.-top,
+.portfolio-experiment a:active .line.-top {
+    transition: transform 0.08s linear 0.4s;
+    transform-origin: right;
+}
+.portfolio-experiment a:hover .line.-left,
+.portfolio-experiment a:active .line.-left {
+    transition: transform 0.08s linear 0.48s;
+    transform-origin: top;
+}
+.portfolio-experiment a:hover .line.-bottom,
+.portfolio-experiment a:active .line.-bottom {
+    transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+    transform-origin: left;
 }

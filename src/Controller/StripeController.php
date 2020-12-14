@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Entity\Order;
+use App\Entity\Product;
 use App\Entity\Subscription;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,44 +29,68 @@ class StripeController extends AbstractController
     }
 
     /**
-     * @Route("/ma-commande/create-session", name="stripe_create_session")
+     * @Route("/ma-commande/create-session/{reference}", name="stripe_create_session")
      */
-    public function index(Cart $cart): Response
+    public function index(EntityManagerInterface $entityManager, Cart $cart, $reference): Response
     {
+        $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
+
+        //Si pas de commande, redirection
+        if(!$order){
+            new JsonResponse(['error' => 'order']);
+        }
+
         //Enregistrement produits pour stripe
         $products_for_stripe = [];
         $YOUR_DOMAIN = 'http://127.0.0.1:8000'; //TODO:A remplacer par la futur adresse du site
 
         //Pour tout les produits contenus dans le panier
-        foreach ($cart->getFull() as $product)
+        foreach ($order->getOrderDetails()->getValues() as $product)
         {
+            $product_object = $entityManager->getRepository(Product::class)->findOneByName($product->getProduct());
             //Injection des produits dans stripe
             $products_for_stripe[] = [
                 'price_data' => [
                     'currency' => 'eur',
-                    'unit_amount' => $product['product']->getPrice(),
+                    'unit_amount' => $product->getPrice(),
                     'product_data' => [
-                        'name' => $product['product']->getName(),
-                        'images' => [$YOUR_DOMAIN."/uploads/files/".$product['product']->getIllustration()],
+                        'name' => $product->getProduct(),
+                        'images' => [$YOUR_DOMAIN."/uploads/files/".$product_object->getIllustration()],
                     ],
                 ],
-                'quantity' => $product['quantity'],
+                'quantity' => $product->getQuantity(),
             ];
-
         }
+
+        //Si transporteur, à rajouter
+//        $products_for_stripe[] = [
+//            'price_data' => [
+//                'currency' => 'eur',
+//                'unit_amount' => $order->getCarrierPrice() * 100,
+//                'product_data' => [
+//                    'name' => $order->getCarrierName(),
+//                    'images' => [$YOUR_DOMAIN],
+//                ],
+//            ],
+//            'quantity' => 1,
+//        ];
 
         //Stripe
         Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
 
         $checkout_session = Session::create([
+            'customer_email' => $this->getUser()->getEmail(),
             'payment_method_types' => ['card'],
             'line_items' => [[
                 $products_for_stripe
             ]],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/success.html.twig',
-            'cancel_url' => $YOUR_DOMAIN . '/cancel.html.twig',
+            'success_url' => $YOUR_DOMAIN . '/ma-commande/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $YOUR_DOMAIN . '/ma-commande/erreur/{CHECKOUT_SESSION_ID}',
         ]);
+
+        $order->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
 
         $response = new JsonResponse(['id' => $checkout_session->id]);
 
@@ -72,18 +98,26 @@ class StripeController extends AbstractController
     }
 
     /**
-     * @Route("/mon-compte/je-m-abonne-mensuellement/create-session", name="subscribe_create_session")
+     * @Route("/mon-compte/je-m-abonne-mensuellement/create-session/{reference}", name="subscribe_create_session")
      */
-    public function subscribeCreateSession(): Response
+    public function subscribeCreateSession(EntityManagerInterface $entityManager, $reference): Response
     {
+
+        $subscription = $entityManager->getRepository(Subscription::class)->findOneByReference($reference);
+
+        //Si pas de commande, redirection
+        if(!$subscription){
+            new JsonResponse(['error' => 'order']);
+        }
         //Stripe
         $myDomain = 'http://127.0.0.1:8000';
 
         Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
 
         $checkout_session = Session::create([
-            'success_url' => $myDomain.'/success?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => $myDomain.'/canceled.html.twig',
+            'customer_email' => $this->getUser()->getEmail(),
+            'success_url' => $myDomain.'/mon-compte/je-m-abonne/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $myDomain.'/mon-compte/je-m-abonne/erreur/{CHECKOUT_SESSION_ID}',
             'payment_method_types' => ['card'],
             'mode' => 'subscription',
             'line_items' => [[
@@ -92,6 +126,9 @@ class StripeController extends AbstractController
                 'quantity' => 1,
             ]],
         ]);
+
+        $subscription->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
 
         $response = new JsonResponse(['sessionId' => $checkout_session->id]);
 
@@ -112,18 +149,26 @@ class StripeController extends AbstractController
     }
 
     /**
-     * @Route("/mon-compte/je-m-abonne-trimestriel/create-session", name="subscribe_create_session_trimester")
+     * @Route("/mon-compte/je-m-abonne-trimestriel/create-session/{reference}", name="subscribe_create_session_trimester")
      */
-    public function subscribeTrimesterCreateSession(): Response
+    public function subscribeTrimesterCreateSession(EntityManagerInterface $entityManager, $reference): Response
     {
+        $subscription = $entityManager->getRepository(Subscription::class)->findOneByReference($reference);
+
+        //Si pas de commande, redirection
+        if(!$subscription){
+            new JsonResponse(['error' => 'order']);
+        }
+
         //Stripe
         $myDomain = 'http://127.0.0.1:8000';
 
         Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
 
         $checkout_session = Session::create([
-            'success_url' => $myDomain.'/success?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => $myDomain.'/canceled.html.twig',
+            'customer_email' => $this->getUser()->getEmail(),
+            'success_url' => $myDomain.'/mon-compte/je-m-abonne/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $myDomain.'/mon-compte/je-m-abonne/erreur/{CHECKOUT_SESSION_ID}',
             'payment_method_types' => ['card'],
             'mode' => 'subscription',
             'line_items' => [[
@@ -133,24 +178,35 @@ class StripeController extends AbstractController
             ]],
         ]);
 
+        $subscription->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
+
         $response = new JsonResponse(['sessionId' => $checkout_session->id]);
 
         return $response;
     }
 
     /**
-     * @Route("/mon-compte/je-m-abonne-semestriel/create-session", name="subscribe_create_session_semester")
+     * @Route("/mon-compte/je-m-abonne-semestriel/create-session/{reference}", name="subscribe_create_session_semester")
      */
-    public function subscribeSemesterCreateSession(): Response
+    public function subscribeSemesterCreateSession(EntityManagerInterface $entityManager, $reference): Response
     {
+        $subscription = $entityManager->getRepository(Subscription::class)->findOneByReference($reference);
+
+        //Si pas de commande, redirection
+        if(!$subscription){
+            new JsonResponse(['error' => 'order']);
+        }
+
         //Stripe
         $myDomain = 'http://127.0.0.1:8000';
 
         Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
 
         $checkout_session = Session::create([
-            'success_url' => $myDomain.'/success?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => $myDomain.'/canceled.html.twig',
+            'customer_email' => $this->getUser()->getEmail(),
+            'success_url' => $myDomain.'/mon-compte/je-m-abonne/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $myDomain.'/mon-compte/je-m-abonne/erreur/{CHECKOUT_SESSION_ID}',
             'payment_method_types' => ['card'],
             'mode' => 'subscription',
             'line_items' => [[
@@ -160,24 +216,35 @@ class StripeController extends AbstractController
             ]],
         ]);
 
+        $subscription->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
+
         $response = new JsonResponse(['sessionId' => $checkout_session->id]);
 
         return $response;
     }
 
     /**
-     * @Route("/mon-compte/je-m-abonne-annuel/create-session", name="subscribe_create_session_year")
+     * @Route("/mon-compte/je-m-abonne-annuel/create-session/{reference}", name="subscribe_create_session_year")
      */
-    public function subscribeYearCreateSession(): Response
+    public function subscribeYearCreateSession(EntityManagerInterface $entityManager, $reference): Response
     {
+        $subscription = $entityManager->getRepository(Subscription::class)->findOneByReference($reference);
+
+        //Si pas de commande, redirection
+        if(!$subscription){
+            new JsonResponse(['error' => 'order']);
+        }
+
         //Stripe
         $myDomain = 'http://127.0.0.1:8000';
 
         Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
 
         $checkout_session = Session::create([
-            'success_url' => $myDomain.'/success?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => $myDomain.'/canceled.html.twig',
+            'customer_email' => $this->getUser()->getEmail(),
+            'success_url' => $myDomain.'/mon-compte/je-m-abonne/merci/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $myDomain.'/mon-compte/je-m-abonne/erreur/{CHECKOUT_SESSION_ID}',
             'payment_method_types' => ['card'],
             'mode' => 'subscription',
             'line_items' => [[
@@ -186,6 +253,9 @@ class StripeController extends AbstractController
                 'quantity' => 1,
             ]],
         ]);
+
+        $subscription->setStripeSessionId($checkout_session->id);
+        $entityManager->flush();
 
         $response = new JsonResponse(['sessionId' => $checkout_session->id]);
 

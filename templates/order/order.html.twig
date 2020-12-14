@@ -13,7 +13,6 @@
             <div class="font-helvetica-thin">
                 {% set formHtml %}
                     {{ form_start(form, {action:path('order_recap')}) }}
-                    {{ form_label(form.addresses, 'Sélectionnez votre adresse de livraison') }}
 
                     <small><a href="{{ path('account_address_add') }}" title="Ajouter une nouvelle adresse">Ajouter une nouvelle adresse</a></small>
 

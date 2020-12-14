@@ -32,16 +32,6 @@ class Order
     private $createdAt;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $carrierName;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $carrierPrice;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $delivery;
@@ -55,6 +45,16 @@ class Order
      * @ORM\Column(type="boolean")
      */
     private $isPaid;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $reference;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $stripeSessionId;
 
     public function __construct()
     {
@@ -97,30 +97,6 @@ class Order
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getCarrierName(): ?string
-    {
-        return $this->carrierName;
-    }
-
-    public function setCarrierName(string $carrierName): self
-    {
-        $this->carrierName = $carrierName;
-
-        return $this;
-    }
-
-    public function getCarrierPrice(): ?float
-    {
-        return $this->carrierPrice;
-    }
-
-    public function setCarrierPrice(float $carrierPrice): self
-    {
-        $this->carrierPrice = $carrierPrice;
 
         return $this;
     }
@@ -175,6 +151,30 @@ class Order
     public function setIsPaid(bool $isPaid): self
     {
         $this->isPaid = $isPaid;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getStripeSessionId(): ?string
+    {
+        return $this->stripeSessionId;
+    }
+
+    public function setStripeSessionId(?string $stripeSessionId): self
+    {
+        $this->stripeSessionId = $stripeSessionId;
 
         return $this;
     }
