@@ -1,6 +1,0 @@
-
-$app->get('/checkout-session', function (Request $request, Response $response, array $args) {
-  $id = $request->getQueryParams()['sessionId'];
-  $checkout_session = \Stripe\Checkout\Session::retrieve($id);
-
-  return $response->withJson($checkout_session);

@@ -2,99 +2,26 @@
 
 namespace App\Controller;
 
-use App\Classe\Cart;
-use App\Entity\Order;
-use App\Entity\Product;
 use App\Entity\Subscription;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Stripe\Charge;
+use http\Message\Parser;
 use Stripe\Checkout\Session;
+use Stripe\Event;
 use Stripe\Stripe;
+use Stripe\Webhook;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\JsonDecode;
 
-class StripeController extends AbstractController
+class StripeSubcriptionController extends AbstractController
 {
-
     private $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
-    }
-
-    /**
-     * @Route("/ma-commande/create-session/{reference}", name="stripe_create_session")
-     */
-    public function index(EntityManagerInterface $entityManager, Cart $cart, $reference): Response
-    {
-        $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
-
-        //Si pas de commande, redirection
-        if(!$order){
-            new JsonResponse(['error' => 'order']);
-        }
-
-        //Enregistrement produits pour stripe
-        $products_for_stripe = [];
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000'; //TODO:A remplacer par la futur adresse du site
-
-        //Pour tout les produits contenus dans le panier
-        foreach ($order->getOrderDetails()->getValues() as $product)
-        {
-            $product_object = $entityManager->getRepository(Product::class)->findOneByName($product->getProduct());
-            //Injection des produits dans stripe
-            $products_for_stripe[] = [
-                'price_data' => [
-                    'currency' => 'eur',
-                    'unit_amount' => $product->getPrice(),
-                    'product_data' => [
-                        'name' => $product->getProduct(),
-                        'images' => [$YOUR_DOMAIN."/uploads/files/".$product_object->getIllustration()],
-                    ],
-                ],
-                'quantity' => $product->getQuantity(),
-            ];
-        }
-
-        //Si transporteur, à rajouter
-//        $products_for_stripe[] = [
-//            'price_data' => [
-//                'currency' => 'eur',
-//                'unit_amount' => $order->getCarrierPrice() * 100,
-//                'product_data' => [
-//                    'name' => $order->getCarrierName(),
-//                    'images' => [$YOUR_DOMAIN],
-//                ],
-//            ],
-//            'quantity' => 1,
-//        ];
-
-        //Stripe
-        Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
-
-        $checkout_session = Session::create([
-            'customer_email' => $this->getUser()->getEmail(),
-            'payment_method_types' => ['card'],
-            'line_items' => [[
-                $products_for_stripe
-            ]],
-            'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/ma-commande/merci/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => $YOUR_DOMAIN . '/ma-commande/erreur/{CHECKOUT_SESSION_ID}',
-        ]);
-
-        $order->setStripeSessionId($checkout_session->id);
-        $entityManager->flush();
-
-        $response = new JsonResponse(['id' => $checkout_session->id]);
-
-        return $response;
     }
 
     /**
@@ -135,18 +62,6 @@ class StripeController extends AbstractController
         return $response;
     }
 
-    /**
-     *  @Route("/mon-compte/je-m-abonne-mensuellement/checkout-session", name="subscribe_checkout_session")
-     */
-    public function subscribeCheckoutSession(Request $request): Response
-    {
-
-        Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
-
-
-        $id = $request->query->get('sessionId');
-        dd($id);
-    }
 
     /**
      * @Route("/mon-compte/je-m-abonne-trimestriel/create-session/{reference}", name="subscribe_create_session_trimester")
@@ -260,6 +175,101 @@ class StripeController extends AbstractController
         $response = new JsonResponse(['sessionId' => $checkout_session->id]);
 
         return $response;
+    }
+
+    /**
+     * @Route("/mon-compte/je-m-abonne/checkout-session/{stripeSessionId}", name="subscribe_checkout-session")
+     */
+    public function checkoutSession($stripeSessionId)
+    {
+        $subscription = $this->entityManager->getRepository(Subscription::class)->findOneByStripeSessionId($stripeSessionId);
+
+        Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
+
+        $checkout_session = Session::retrieve($subscription);
+
+        $response = new JsonResponse($checkout_session);
+
+        return $response;
+    }
+
+    /**
+     * @Route("/mon-compte/je-m-abonne/customer-portal/{stripeSessionId}", name="subscribe_customer_portal")
+     */
+    public function customerPortal(Request $request, EntityManagerInterface $entityManager, $stripeSessionId)
+    {
+        $subscription = $entityManager->getRepository(Subscription::class)->findOneByStripeSessionId($stripeSessionId);
+
+
+        Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
+
+        $checkout_session = Session::retrieve($stripeSessionId);
+
+        $stripe_customer_id = $checkout_session->customer;
+
+        $return_url = 'http://127.0.0.1:8000/mon-compte/mon-abonnement';
+
+        $session = \Stripe\BillingPortal\Session::create([
+            'customer' => $stripe_customer_id,
+            'return_url' => $return_url,
+        ]);
+
+
+
+        $response = new JsonResponse(['url' => $session->url]);
+
+        return $response;
+    }
+
+    /**
+     * @Route("/mon-compte/mon-abonnement/webhook", name="subscribe_webhook")
+     */
+    public function webhook(Request $request)
+    {
+        Stripe::setApiKey('sk_test_51HuFssLrKb2GsnXLICx8LTZNijsAEeXk5drqXo0V62Lan0JLqussrQqM28EcxARTPzGVYkWOJPTZfMYSOb9AmWyc00IvThoFjC');
+
+        $session = \Stripe\BillingPortal\Session::create([
+            'customer' => $this->getUser()->getStripeCustomerId(),
+            'return_url' => 'http://127.0.0.1:8000/mon-compte/mon-abonnement',
+        ]);
+
+        $session->values();
+        //dd($session);
+
+        // Redirect to the customer portal.
+        header("Location: " . $session->url); exit();
+
+        $payload = @file_get_contents('php://input');
+
+        $event = \Stripe\Event::constructFrom(
+            json_decode($payload, true)
+        );
+
+        $webhookSecret = 'whsec_YZgQ07YeUr0b49f3Cxqnw8L4LzCU1g7n';
+
+        // Handle the event
+        switch ($event->type) {
+            case 'payment_intent.succeeded':
+                $paymentIntent = $event->getData()->getObject(); // contains a \Stripe\PaymentIntent
+                // Then define and call a method to handle the successful payment intent.
+                // handlePaymentIntentSucceeded($paymentIntent);
+                break;
+            case 'payment_method.attached':
+                $paymentMethod = $event->data->object; // contains a \Stripe\PaymentMethod
+                // Then define and call a method to handle the successful attachment of a PaymentMethod.
+                // handlePaymentMethodAttached($paymentMethod);
+                break;
+            case 'customer.subscription.updated':
+                $customerSubscription = $event->data->values();
+                dd($customerSubscription);
+            default:
+                // Unexpected event type
+                echo 'Received unknown event type';
+
+        }
+
+        http_response_code(200);
+
     }
 
 

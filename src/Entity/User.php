@@ -297,14 +297,32 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSubscription(): ArrayCollection
+    /**
+     * @return Collection|Subscription[]
+     */
+    public function getSubscription(): Collection
     {
         return $this->subscription;
     }
 
-    public function setSubscription(?Subscription $subscription): self
+    public function addSubscription(Subscription $subscription): self
     {
-        $this->subscription = $subscription;
+        if (!$this->subscription->contains($subscription)) {
+            $this->subscription[] = $subscription;
+            $subscription->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubscription(Subscription $subscription): self
+    {
+        if ($this->subscription->removeElement($subscription)) {
+            // set the owning side to null (unless already changed)
+            if ($subscription->getUser() === $this) {
+                $subscription->setUser(null);
+            }
+        }
 
         return $this;
     }

@@ -4,11 +4,23 @@
 
 {% block content %}
 
-    <h1 class="font-allura text-center mb-5">Inscription à My Mom's Box</h1>
 
-    <div class="m-auto col-sm-8">
-        {{ form(form) }}
+
+    <div class="row">
+        <div class="col-sm-6 ml-5">
+            <h1 class="font-allura text-center">Inscription à My Mom's Box</h1>
+
+            {% if notification %}
+                <div class="alert alert-info">{{ notification }}</div>
+            {% endif %}
+
+            {{ form(form) }}
+        </div>
+        <div class="col-4 offset-1">
+            <img src="{{ asset('assets/img/moms_black_box_big.png') }}" alt="moms box inscription" class="img-box-register">
+        </div>
     </div>
+    
 
 
 {% endblock %}

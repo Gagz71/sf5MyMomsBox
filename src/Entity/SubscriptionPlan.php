@@ -105,17 +105,13 @@ class SubscriptionPlan
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getSubscription()
     {
         return $this->subscription;
     }
 
-    /**
-     * @param mixed $subscription
-     */
+
     public function setSubscription($subscription): void
     {
         $this->subscription = $subscription;

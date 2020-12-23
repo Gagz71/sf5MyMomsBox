@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\Subscription;
 use App\Entity\SubscriptionPlan;
 use Doctrine\ORM\EntityManagerInterface;
@@ -64,9 +65,11 @@ class SubscriptionController extends AbstractController
         $newSubscription->setPrice($monthly_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3ioLrKb2GsnXLxBdgERHd');
+        $newSubscription->setSubscriptionDate($date);
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
         $this->entityManager->flush();
+
 
         return $this->render('subscription/monthly_subscribe.html.twig', [
             'reference' => $newSubscription->getReference()
@@ -91,9 +94,11 @@ class SubscriptionController extends AbstractController
         $newSubscription->setPrice($trimester_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3jgLrKb2GsnXLLGjs3UmJ');
+        $newSubscription->setSubscriptionDate($date);
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
         $this->entityManager->flush();
+
 
         return $this->render('subscription/trimester_subscribe.html.twig', [
             'reference' => $newSubscription->getReference()
@@ -118,6 +123,7 @@ class SubscriptionController extends AbstractController
         $newSubscription->setPrice($semester_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3kKLrKb2GsnXLcsV4Qi8Z');
+        $newSubscription->setSubscriptionDate($date);
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
         $this->entityManager->flush();
@@ -145,9 +151,11 @@ class SubscriptionController extends AbstractController
         $newSubscription->setPrice($year_subscribe->getPrice());
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3jgLrKb2GsnXLLGjs3UmJ');
+        $newSubscription->setSubscriptionDate($date);
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
         $this->entityManager->flush();
+
 
         return $this->render('subscription/year_subscribe.html.twig', [
             'reference' => $newSubscription->getReference()

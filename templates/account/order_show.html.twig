@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande{% endblock %}
+
+{% block content %}
+    <h1 class="font-allura">Ma commande <small>n°{{ order.reference }}</small></h1>
+
+    <a href="{{ path('account_order') }}" class="hvr-icon-back"><i class="fa fa-chevron-circle-left hvr-icon"></i> Retour</a>
+    <hr>
+    <div class="row">
+        <div class="col-md-4 m-auto">
+            <div class="list-group font-helvetica-thin">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Commande référence n°: </strong><small>{{ order.reference }}</small></li>
+                    <li class="list-group-item"><strong>Passée le : </strong>{{ order.createdAt|date('d/m/Y') }}</li>
+                    <li class="list-group-item"><strong>Pour un prix total de : </strong>{{ (order.getTotal / 100)|number_format(2, ',', '.') }}€</li>
+                    <li class="list-group-item"><strong>Livrée à : </strong>{{ order.delivery|raw }}</li>
+                    <li class="list-group-item"><strong>Détails de la commande : </strong>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Produit</th>
+                                <th scope="col">Quantité</th>
+                                <th scope="col">Prix unitaire</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for product in order.orderDetails %}
+                                {{ dump(product) }}
+                            <tr>
+                                <td>{{ product.product }}</td>
+                                <td>{{ product.quantity }}</td>
+                                <td>{{ (product.price / 100)|number_format(2, ',', '.') }}€</td>
+                                <td>{{ (product.total / 100)|number_format(2, ',', '.') }}€</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

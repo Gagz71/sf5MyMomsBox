@@ -8,7 +8,7 @@ $(".button-share").click(function(){
 
 function createCustomer() {
     let billingEmail = document.querySelector('#email').value;
-    return fetch('/create-customer', {
+    return fetch('/create-customer/', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json',
@@ -49,4 +49,7 @@ var handleResult = function(result) {
         showErrorMessage(result.error.message);
     }
 };
+
+
+
 

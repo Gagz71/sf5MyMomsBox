@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\Subscription;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,8 +29,17 @@ class SubscribeSuccessController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
+        $user = $subscription->getUser();
+
+        //Envoi d'un mail de confirmation
+        $email = new Mail();
+        $content = 'Bonjour '. $user->getFirstname().', <br>Nous sommes ravies de vous compter parmis nos abonnés. Vous pouvez dès à présent vous rendre sur votre compte pour gérer vos informations. <br>A très vite sur mymomsbox.fr';
+        $email->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur My Mom\'s Box', $content);
+
+
         return $this->render('subscribe_success/index.html.twig', [
             'subscription' => $subscription,
+            'stripeSessionId' => $stripeSessionId
         ]);
     }
 }

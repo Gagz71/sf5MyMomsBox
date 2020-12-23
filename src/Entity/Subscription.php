@@ -56,6 +56,11 @@ class Subscription
      */
     private $reference;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $subscriptionDate;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -95,7 +100,10 @@ class Subscription
         return $this;
     }
 
-    public function getSubscriptionPlan()
+    /**
+     * @return Collection|SubscriptionPlan[]
+     */
+    public function getSubscriptionPlan(): Collection
     {
         return $this->subscriptionPlan;
     }
@@ -119,7 +127,7 @@ class Subscription
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getUser(): ArrayCollection
     {
         return $this->user;
     }
@@ -151,6 +159,18 @@ class Subscription
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getSubscriptionDate(): ?\DateTimeInterface
+    {
+        return $this->subscriptionDate;
+    }
+
+    public function setSubscriptionDate(\DateTimeInterface $subscriptionDate): self
+    {
+        $this->subscriptionDate = $subscriptionDate;
 
         return $this;
     }

@@ -3,6 +3,15 @@ div.form-group.text-center label{
     display: flex;
     flex-direction: column;
 }
+.img-login{
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+}
+.img-box-register{
+    position: absolute;
+    bottom: 0;
+}
 
 /*P. mon-compte/adresses*/
 /* Icon Back */

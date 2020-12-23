@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,6 +40,9 @@ class OrderSuccessController extends AbstractController
             $this->entityManager->flush();
 
             //Envoyer email au client pr confirmation de paiement de commande
+            $email = new Mail();
+            $content = 'Bonjour '. $order->getUser()->getFirstname().', <br>Merci pour votre commande.<br> Vous pouvez dès à présent vous rendre sur votre compte pour gérer vos informations. <br>A très vite sur mymomsbox.fr';
+            $email->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande sur mymomsbox.fr a bien été validé.', $content);
 
         }
 

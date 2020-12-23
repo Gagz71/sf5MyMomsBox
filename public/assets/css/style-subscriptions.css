@@ -17,25 +17,80 @@
     color: black;
 }
 /*Page abonnement*/
-.bg-subscribes{
-    background-image: url("../img/moms_box_3.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 230px;
-    width: 95%;
-}
-
-.card-deck .card {
-    min-width: 220px;
-}
-
 .elegantshadow{
     color: black;
     letter-spacing: 0.15em;
     text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d;
     font-size: 4.5rem;
+}
+
+h1.font-allura:nth-child(3){
+    font-size: 3.5rem;
+}
+.bg-subscribes{
+    background-image: url("../img/moms_box_3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    background-attachment: fixed;
+    background-position: bottom;
     position: relative;
-    top: 1em;
+}
+.list-box{
+    list-style: none;
+}
+/*Icon push*/
+@-webkit-keyframes hvr-icon-push {
+    50% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+}
+@keyframes hvr-icon-push {
+    50% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+}
+.hvr-icon-push {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    color: #1d2124;
+}
+.hvr-icon-push .hvr-icon {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-icon-push:hover .hvr-icon, .hvr-icon-push:focus .hvr-icon, .hvr-icon-push:active .hvr-icon {
+    -webkit-animation-name: hvr-icon-push;
+    animation-name: hvr-icon-push;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+.hvr-icon-push:hover{
+    text-decoration: none;
+    color: darkgoldenrod;
+}
+
+
+/*Mes cards d'abonnement*/
+.card-deck .card {
+    min-width: 220px;
 }
 
 .heading-primary {
@@ -253,7 +308,8 @@
 }
 
 .card__details {
-    padding: 1rem 1rem 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 .card__cta {
     position: absolute;
