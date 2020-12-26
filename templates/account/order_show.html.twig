@@ -15,6 +15,15 @@
                     <li class="list-group-item"><strong>Passée le : </strong>{{ order.createdAt|date('d/m/Y') }}</li>
                     <li class="list-group-item"><strong>Pour un prix total de : </strong>{{ (order.getTotal / 100)|number_format(2, ',', '.') }}€</li>
                     <li class="list-group-item"><strong>Livrée à : </strong>{{ order.delivery|raw }}</li>
+                    <li class="list-group-item"><strong>Statut de la commande : </strong>
+                        {% if order.state == 1 %}
+                            Paiement validé
+                        {% elseif order.state == 2 %}
+                            Préparation en cours
+                        {% elseif order.state == 3 %}
+                            Livraison en cours
+                        {% endif %}
+                    </li>
                     <li class="list-group-item"><strong>Détails de la commande : </strong>
                         <table class="table">
                             <thead>
@@ -27,7 +36,6 @@
                             </thead>
                             <tbody>
                             {% for product in order.orderDetails %}
-                                {{ dump(product) }}
                             <tr>
                                 <td>{{ product.product }}</td>
                                 <td>{{ product.quantity }}</td>

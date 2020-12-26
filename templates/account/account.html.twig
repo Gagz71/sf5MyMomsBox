@@ -6,14 +6,14 @@
     
     <h1 class="font-allura">Bienvenue dans votre espace My Mom's Box</h1>
     
-    <p class="font-helvetica-thin">Bonjour {{ app.user.firstname }}. C'est ici que vous allez pouvoir
-                                                  gérer les informations liées à votre compte. </p>
+    <p class="font-helvetica-thin">Bonjour {{ app.user.firstname }}. C'est ici que vous allez pouvoir gérer les informations liées à votre compte. </p>
     <div class="row">
         <div class="col-md-4">
             <div class="list-group font-helvetica-thin">
-                <a href="{{ path('account_password') }}" class="list-group-item list-group-item-action">
-                    Modifier mon mot de passe
-                </a>
+                {% if  is_granted('ROLE_ADMIN') %}
+                <a href="/admin" class="list-group-item list-group-item-action">Accéder au back-office</a>
+                {% endif %}
+                <a href="{{ path('account_password') }}" class="list-group-item list-group-item-action">Modifier mon mot de passe</a>
                 <a href="{{ path('account_address') }}" class="list-group-item list-group-item-action">Gérer mes adresses de livraisons</a>
                 <a href="{{ path('account_subscription') }}" class="list-group-item list-group-item-action">Mon abonnement</a>
                 <a href="#" class="list-group-item list-group-item-action">Ma photo</a>

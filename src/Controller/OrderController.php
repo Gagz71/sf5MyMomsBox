@@ -107,7 +107,7 @@ class OrderController extends AbstractController
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
             $order->setDelivery($deliveryContent);
-            $order->setIsPaid(0);
+            $order->setState(0);
 
             $this->entityManager->persist($order);
 

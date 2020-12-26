@@ -152,6 +152,7 @@ class SubscriptionController extends AbstractController
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3jgLrKb2GsnXLLGjs3UmJ');
         $newSubscription->setSubscriptionDate($date);
+        $newSubscription->setIsActive(0);
         //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
         $this->entityManager->flush();

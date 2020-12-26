@@ -61,6 +61,11 @@ class Subscription
      */
     private $subscriptionDate;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isActive;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -127,7 +132,7 @@ class Subscription
         return $this;
     }
 
-    public function getUser(): ArrayCollection
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -171,6 +176,18 @@ class Subscription
     public function setSubscriptionDate(\DateTimeInterface $subscriptionDate): self
     {
         $this->subscriptionDate = $subscriptionDate;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(?bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

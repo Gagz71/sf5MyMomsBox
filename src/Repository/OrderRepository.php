@@ -23,7 +23,7 @@ class OrderRepository extends ServiceEntityRepository
     public function findSuccessOrders($user)
     {
         return $this->createQueryBuilder('o')
-            ->andWhere('o.isPaid = 1') //uniquement commande payé
+            ->andWhere('o.state > 0') //uniquement commande payé
             ->andWhere('o.user = :user') //uniquement commande de l'user en cours
             ->setParameter('user', $user) //pr le :user
             ->addOrderBy('o.id', 'DESC')

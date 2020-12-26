@@ -27,16 +27,10 @@ class AccountSubscriptionController extends AbstractController
         //récupération de l'abonnement
         $subscriptions = $this->entityManager->getRepository(Subscription::class)->findByUser($this->getUser());
 
-
-        //dd($subscriptions);
-
         foreach ($subscriptions as $subscription)
         {
             $stripeSessionId = $subscription->getStripeSessionId();
         }
-
-        //dd($this->getUser());
-
 
         return $this->render('account/subscription.html.twig', [
             'subscriptions' => $subscriptions,

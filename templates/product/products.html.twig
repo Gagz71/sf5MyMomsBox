@@ -2,12 +2,7 @@
 
 {% block title %}Nos produits{% endblock %}
 
-
-
 {% block content %}
-
-
-
 
     <div class="row">
         <div class="col-md-2">
@@ -21,24 +16,7 @@
                 {% for product in products %}
 
                     <div class="col-3 mb-4 gold-shadow anim-card">
-                        <div class="card h-100 product-item text-center overlay">
-                            <a href="{{ path('product', {'slug' : product.slug}) }}"><img src="/uploads/files/{{ product.illustration }}" alt="illustration {{ product.name }}" class="card-img-top"></a>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <p class="card-text product-subtitle">{{ product.subtitle }}</p>
-                                <footer class="blockquote-footer product-price">{{ (product.price / 100)|number_format(2) }}€</footer>
-                            </div>
-                            <div class="card-footer">
-                                <div class="svg-wrapper">
-                                    <svg height="40" width="120" xmlns="http://www.w3.org/2000/svg">
-                                        <rect class="shape" height="40" width="120" />
-                                        <div class="text"><a href="{{ path('product', {'slug' : product.slug}) }}" title="Voir le produit">En savoir plus</a></div>
-                                    </svg>
-                                </div>
-                            </div>
-
-
-                        </div>
+                        {% include 'product/single_product.html.twig' %}
                     </div>
 
                 {% endfor %}

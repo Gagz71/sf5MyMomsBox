@@ -1,7 +1,9 @@
 <?php
 
+//Fichier de configuration des images
 namespace App\EventSubscriber;
 
+use App\Entity\Header;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
@@ -34,23 +36,34 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $entity->setIllustration($tmp_name);
     }
 
-    public function updateIllustration(BeforeEntityUpdatedEvent $event)
-    {
+          public function updateIllustration(BeforeEntityUpdatedEvent $event)
+          {
 
-        if (!($event->getEntityInstance()) instanceof Product) {
-            return;
-        }
+                    if (!($event->getEntityInstance() instanceof Product) || !($event->getEntityInstance() instanceof Header)) {
+                      return;
+                    }
 
-        if ($_FILES['Product']['name']['illustration'] != '') {
-            $this->uploadIllustration($event);
-        }
-    }
+                    //Class qui permet de récupérér une entité
+                    $reflexion = new \ReflectionClass($event->getEntityInstance());
+                    $entityName = $reflexion->getShortName(); //récupération de l'entity sur laquelle on travaille
+
+
+                    if ($_FILES[$entityName]['name']['illustration'] != '') {
+                              $this->uploadIllustration($event);
+                    }
+          }
 
     public function setIllustration(BeforeEntityPersistedEvent $event)
     {
-        if (!($event->getEntityInstance()) instanceof Product) {
+
+              //Class qui permet de récupérér une entité
+              $reflexion = new \ReflectionClass($event->getEntityInstance());
+              $entityName = $reflexion->getShortName(); //récupération de l'entity sur laquelle on travaille
+
+
+              if (!($event->getEntityInstance() instanceof Product) || !($event->getEntityInstance() instanceof Header) ){
             return;
-        }
+          }
 
         $this->uploadIllustration($event);
 

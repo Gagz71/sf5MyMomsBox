@@ -29,6 +29,11 @@ class SubscribeSuccessController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
+        if(!$subscription ->getIsActive()){
+            //statut de l'abonnement à actif quand paiement effectué
+            $subscription->setIsActive(1);
+            $this->entityManager->flush();
+        }
         $user = $subscription->getUser();
 
         //Envoi d'un mail de confirmation
@@ -37,7 +42,7 @@ class SubscribeSuccessController extends AbstractController
         $email->send($user->getEmail(), $user->getFirstname(), 'Bienvenue sur My Mom\'s Box', $content);
 
 
-        return $this->render('subscribe_success/index.html.twig', [
+        return $this->render('subscribe_success/reset_password.html.twig', [
             'subscription' => $subscription,
             'stripeSessionId' => $stripeSessionId
         ]);

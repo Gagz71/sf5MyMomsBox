@@ -30,7 +30,7 @@ class SubscribeCancelController extends AbstractController
 
         //Envoi d'un email à l'user notifiant l'echec de paiement
 
-        return $this->render('subscribe_cancel/index.html.twig', [
+        return $this->render('subscribe_cancel/reset_password.html.twig', [
             'subscription' => $subscription
         ]);
     }

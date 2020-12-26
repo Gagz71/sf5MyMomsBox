@@ -11,6 +11,9 @@
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
+                {% for message in app.flashes('notice') %}
+                    <div class="alert alert-info">{{ message }}</div>
+                {% endfor %}
 
                 {% if app.user %}
                     <div class="mb-3">
@@ -26,6 +29,9 @@
                     <label for="inputPassword">Mot de passe</label>
                     <input type="password" name="password" id="inputPassword" class="form-control-sm" required>
                 </div>
+                <div class="form-group text-center font-helvetica-thin">
+                    <small><a href="{{ path('reset_password') }}">J'ai oublié mon mot de passe</a></small>
+                </div>
 
 
 
@@ -36,7 +42,7 @@
                     <button class="btn btn-sm btn-outline-info" type="submit">
                         Je me connecte
                     </button>
-
+                    <hr>
                     <small><p class="font-helvetica-thin mt-3">Pas encore de compte ?<br>
                         <a href="{{ path('app_register') }}">Je me créer un compte</a>
                     </p></small>
