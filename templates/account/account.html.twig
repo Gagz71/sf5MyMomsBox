@@ -11,13 +11,12 @@
         <div class="col-md-4">
             <div class="list-group font-helvetica-thin">
                 {% if  is_granted('ROLE_ADMIN') %}
-                <a href="/admin" class="list-group-item list-group-item-action">Accéder au back-office</a>
+                <a href="/admin" class="list-group-item list-group-item-action" title="Accéder au back-office"><img src="{{ asset('assets/img/management.png') }}" alt="icone admin"> Accéder au back-office</a>
                 {% endif %}
-                <a href="{{ path('account_password') }}" class="list-group-item list-group-item-action">Modifier mon mot de passe</a>
-                <a href="{{ path('account_address') }}" class="list-group-item list-group-item-action">Gérer mes adresses de livraisons</a>
-                <a href="{{ path('account_subscription') }}" class="list-group-item list-group-item-action">Mon abonnement</a>
-                <a href="#" class="list-group-item list-group-item-action">Ma photo</a>
-                <a href="{{ path('account_order') }}" class="list-group-item list-group-item-action">Mes commandes</a>
+                <a href="{{ path('account_password') }}" class="list-group-item list-group-item-action" title="Modifier votre mot de passe"><img src="{{ asset('assets/img/password.png') }}" alt="icone modifier mot de passe"> Modifier mon mot de passe</a>
+                <a href="{{ path('account_address') }}" class="list-group-item list-group-item-action" title="Gérer mes adresses"><img src="{{ asset('assets/img/address-book.png') }}" alt="icone adresses"> Gérer mes adresses de livraisons</a>
+                <a href="{{ path('account_subscription') }}" class="list-group-item list-group-item-action" title="Voir mes abonnements"><img src="{{ asset('assets/img/subscription.png') }}" alt="icone abonnement"> Mon abonnement</a>
+                <a href="{{ path('account_order') }}" class="list-group-item list-group-item-action" title="Voir mes commandes"><img src="{{ asset('assets/img/delivery-box.png') }}" alt="icone commande"> Mes commandes</a>
             </div>
         </div>
     </div>

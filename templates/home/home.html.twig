@@ -5,57 +5,73 @@
 {% block carousel %}{% endblock %}
 
 {% block content %}
-    <h1 class="display-4 ml-5">Nos meilleures ventes</h1>
+    <h1 class="font-allura" style="font-size: 70px;margin-left: 8rem;margin-bottom: 2rem">Nos meilleures ventes</h1>
     <!-- Three columns of text below the carousel -->
     <div class="row">
         {% for product in products %}
-        <div class="col-md-3">
+        <div class="col-md-3 m-auto gold-shadow">
             {% include 'product/single_product.html.twig' %}
         </div>
         {% endfor %}
     </div><!-- /.row -->
     
-    
     <!-- START THE FEATURETTES -->
-    
     <hr class="featurette-divider">
-    
+
+    <div class="bg-ruban"></div>
+
+    <div class="col-md-8">
+        <h1 class="font-helvetica-bold text-uppercase" style="font-size: 50px;">Recevez tous les mois une box surprise nécessaire au quotidien d'une maman </h1>
+    </div>
+
     <div class="row featurette">
+
         <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+            <h2 class="featurette-heading">Des cosmétiques et produits pour votre bien-être  ! <span class="text-muted">100% Biologique !</span></h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+            <img src="{{ asset('assets/img/picspree-1116994.jpg') }}" alt="Maquillage Bio Mom's Box" class="img-fluid">
         </div>
     </div>
-    
+
     <hr class="featurette-divider">
-    
+
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+            <h2 class="featurette-heading">Des produits pour l'entretient de votre foyer <span class="text-muted">100% Biologique !</span></h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+            <img src="{{ asset('assets/img/pexels-karolina-grabowska-4210339.jpg') }}" alt="Produits d'entretient bio !" class="img-fluid">
         </div>
     </div>
-    
+
     <hr class="featurette-divider">
-    
+
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+            <h2 class="featurette-heading">Et plein d'autre surprises juste pour vous ! <span class="text-muted">Parce que votre bien-être nous importe !</span></h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+            <img src="{{ asset('assets/img/picspree-1246813.jpg') }}" alt="Mom's Box l'alliée des mamans" class="img-fluid">
         </div>
     </div>
-    
+
     <hr class="featurette-divider">
-    
     <!-- /END THE FEATURETTES -->
+
+    <div class="row">
+        <div class="col-md-7">
+            <h1 class="font-allura">Comment ça marche ?</h1>
+            <p class="font-helvetica-bold text-uppercase"> Abonnez-vous dès maintenant et recevez  tous les mois  votre Mom's Box Suprise !</p>
+            <p class="font-helvetica-thin">Avec ses produits certifiés 100% d'origine Biologique et ses accessoires d'une valeur supérieur à 60€, My Mom's Box vous gâtera d'attentions particulières.
+                <br>Retrouvez dedans des produits Bien-être et cosmétiques 100% Bio, des produits d'Entretient pour votre foyer, un livret personnalisé à votre attention, et bien plus encore, pour seulement 34,90€/mois !</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{{ asset('assets/img/moms_box_open_fond_transparent.png') }}" alt="Moms box ouverte" class="img-fluid">
+        </div>
+    </div>
     
 {% endblock %}

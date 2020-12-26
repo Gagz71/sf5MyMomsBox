@@ -148,7 +148,7 @@
                             <div class="carousel-caption text-left">
                                 <h1 class="font-helvetica-bold ">{{ header.title }}</h1>
                                 <p class="font-helvetica-thin">{{ header.content }}</p>
-                                <p><a class="btn  btn-info font-helvetica-thin" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>
+                                <p><a class="custom-btn-1 font-helvetica-thin" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
             <div class="my-content mb-5">
 
             {% block content %}
-                salut
+
             {% endblock %}
 
             </div><!-- /.container -->
@@ -201,7 +201,7 @@
                         <a href="{{ path('products') }}" title="Voir les produits Mom's Box">Boutique</a>
                         <a href="#" title="Qui sommes-nous ?">Concept</a>
                         <a href="#" title="Voir la liste de nos partenaires">Nos Partenaires</a>
-                        <a href="#" title="Contactez-nous">Contact</a>
+                        <a href="{{ path('contact') }}" title="Contactez-nous">Contact</a>
                     </div>
 
                     <p class="footer-company-name font-allura">My Mom's Box - L'alliée des mamans © 2020 <span class="NoMansLand"> @NoManhsLand</span> </p>
@@ -229,7 +229,7 @@
 
                     <div>
                         <i class="fa fa-envelope"></i>
-                        <a href="mailto:support@company.com" title="Contactez-nous par email" class="info-link">mymomsbox@momsbox.com</a></p>
+                        <a href="mailto:support@company.com" title="Contactez-nous par email" class="info-link">mymomsbox7@gmail.com</a></p>
                     </div>
                 </div>
 

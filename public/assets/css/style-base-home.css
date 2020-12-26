@@ -63,9 +63,11 @@
 .main-nav{
     width: 100%;
     line-height: 1;
+    margin-top: 2rem;
 }
 .main-slogo{
     line-height: 1;
+    position: absolute;
 }
 div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
     justify-content: space-evenly;
@@ -89,6 +91,15 @@ div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
 .dropdown-item:hover{
     background-color: #f8f9fa;
     color: #B2961D;
+}
+
+.bg-ruban{
+    background-image: url("../img/ruban.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50rem;
+    background-position: top;
 }
 
 /*Footer*/

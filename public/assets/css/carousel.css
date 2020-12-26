@@ -10,7 +10,7 @@
 /* Carousel base class */
 .carousel {
     margin-bottom: 4rem;
-    margin-top: 11.5rem;
+    margin-top: 8rem;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -34,6 +34,37 @@ div.carousel-caption.text-left p.font-helvetica-thin{
     left: 0;
     min-width: 100%;
     height: 32rem;
+}
+.custom-btn-1::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+.custom-btn-1{
+    background: black   ;
+    color: darkgoldenrod;
+    font-size: 17px;
+    border-radius: 0.5em;
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+}
+.custom-btn-1:hover{
+    text-decoration: none;
+    color: snow;
+}
+.custom-btn-1:hover::after, .btn-1:focus::after {
+    animation: sheen 1s forwards;
+}
+@keyframes sheen {
+    100% {
+        transform: rotateZ(60deg) translate(1em, -9em);
+    }
 }
 
 
