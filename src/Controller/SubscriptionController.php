@@ -39,7 +39,6 @@ class SubscriptionController extends AbstractController
         $year_subscribe = $subscriptions[3];
 
         return $this->render('subscription/show_subscribes.html.twig', [
-            'controller_name' => 'SubscriptionController',
             'monthlySubscribe' => $monthly_subscribe,
             'trimesterSubscribe' => $trimester_subscribe,
             'semesterSubscribe' => $semester_subscribe,
@@ -55,8 +54,10 @@ class SubscriptionController extends AbstractController
         $subscriptions = $this->entityManager->getRepository(SubscriptionPlan::class)->findAll();
         //Récupération des infos de l'abonnement mensuel
         $monthly_subscribe = $subscriptions[0];
+        //récupération de l'user
         $user = $this->getUser();
         //Création et hydratation du nouvel abonnement
+
         $newSubscription = new Subscription();
         $date = new \DateTime();
         $reference = $date->format('dmY').'-'.uniqid();
@@ -66,7 +67,7 @@ class SubscriptionController extends AbstractController
         $newSubscription->setUser($user);
         $newSubscription->setPriceId('price_1Hv3ioLrKb2GsnXLxBdgERHd');
         $newSubscription->setSubscriptionDate($date);
-        //Enregistrement du nouvel abonnement
+//        //Enregistrement du nouvel abonnement
         $this->entityManager->persist($newSubscription);
         $this->entityManager->flush();
 

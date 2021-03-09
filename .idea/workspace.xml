@@ -23,13 +23,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e79bb33b-f730-4d0e-ac74-7f553ca79138" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/css/style-account.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/style-contact.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/style-delivery-subscribe.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Recaptcha/RecaptchaValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/navbar-user-connected.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3cdfa8f7-2659-4c7b-a4a0-e0e05abfee90.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3cdfa8f7-2659-4c7b-a4a0-e0e05abfee90.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/carousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style-auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-auth.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/style-base-home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-base-home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style-orders.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-orders.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style-products.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-products.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SubscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SubscriptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ContactType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegisterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegisterType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/account/account.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/account.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/contact.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/monthly_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/monthly_subscribe.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/show_subscribes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/show_subscribes.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +74,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -183,13 +215,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../liEnergies" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../laragon/www/wordpress" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\wordpress" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\endom\Documents\Projet Symfony\MyMomsBox\templates\subscription" />
       <recent name="C:\Users\endom\Documents\Projet Symfony\MyMomsBox\public\Docs" />
@@ -238,7 +273,28 @@
       <workItem from="1608629748374" duration="19455000" />
       <workItem from="1608713237855" duration="10021000" />
       <workItem from="1608899332833" duration="20994000" />
-      <workItem from="1608984897324" duration="27073000" />
+      <workItem from="1608984897324" duration="27677000" />
+      <workItem from="1609065263926" duration="10854000" />
+      <workItem from="1609156788448" duration="15281000" />
+      <workItem from="1609267038001" duration="3529000" />
+      <workItem from="1610034166652" duration="751000" />
+      <workItem from="1610552615510" duration="760000" />
+      <workItem from="1610734708327" duration="3993000" />
+      <workItem from="1610797099568" duration="4696000" />
+      <workItem from="1610887961296" duration="20102000" />
+      <workItem from="1610961299916" duration="11895000" />
+      <workItem from="1611053892152" duration="22270000" />
+      <workItem from="1611164692957" duration="5326000" />
+      <workItem from="1611311991694" duration="876000" />
+      <workItem from="1611392504843" duration="1513000" />
+      <workItem from="1611778000159" duration="3000" />
+      <workItem from="1612531557442" duration="222000" />
+      <workItem from="1612531832315" duration="578000" />
+      <workItem from="1613558880757" duration="594000" />
+      <workItem from="1614848703776" duration="2873000" />
+      <workItem from="1614851871196" duration="4588000" />
+      <workItem from="1615283822172" duration="3809000" />
+      <workItem from="1615294642756" duration="2161000" />
     </task>
     <servers />
   </component>

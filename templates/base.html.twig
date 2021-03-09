@@ -1,26 +1,46 @@
 {% set currentRoute = app.request.attributes.get('_route') %}
 
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="sr">
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="My Mom's Box, l'alliée des mamans">
-    <title>{% block title %}Nouvelle page{% endblock %} - My Mom's Box</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="My Mom's Box, l'alliée des mamans">
+        <title>{% block title %}Nouvelle page{% endblock %} - My Mom's Box</title>
 
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('assets/css/style-base-home.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style-products.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style-auth.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style-orders.css') }}">
-    <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('assets/css/style-base-home.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style-products.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style-orders.css') }}">
+        <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.0.11/css/all.css">
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
     {% block stylesheets %}{% endblock %}
     {% block javascript %}
     <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    // <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script> //pour mode prod
     {% endblock %}
     <style>
         .bd-placeholder-img {
@@ -41,7 +61,7 @@
     
     </head>
     {#Si le carousel n'est pas déclaré, alors ajout d'un margin-top#}
-    <body style="{% if block('carousel') is not defined %}margin-top:17rem;{% endif %}">
+    <body style="{% if block('carousel') is not defined %}margin-top:13rem;{% endif %}">
         <header>
             <!--Ma navbar-->
             <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light" id="remontada">
@@ -50,7 +70,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
     
-            <div class="collapse navbar-collapse flex-column" id="navbarTogglerDemo01">
+            <div class="collapse navbar-collapse flex-column" id="navbarCollapse">
         
                     <!--Mes boutons de connexion et de panier-->
                     <div class="nav-log-basket d-flex">
@@ -83,13 +103,15 @@
                     </div>
         
                     <!--Mon logo et mon slogan-->
-                    <div class="d-flex flex-column m-auto main-slogo">
-                        <a class="navbar-brand font-allura slogo" href="{{ path('home') }}">MY MOM'S B
-                            <img src="{{ asset('assets/img/moms_box_white_sans_lumière.png') }}" class="d-inline-block
-                            align-top" width="40" height="40" alt="" loading="lazy">
-                                                                           X
-                            <hr class="hr-slogo">
-                            <span class="slogan">L'alliée des mamans</span>
+                    <div class=" m-auto main-slogo">
+                        <a class="navbar-brand font-allura slogo" href="{{ path('home') }}">
+                            <img src="{{ asset('assets/img/slogans/Fichier 1.1.png') }}" alt="Slogo Mom's Box" width="300">
+{#                            MY MOM'S B#}
+{#                            <img src="{{ asset('assets/img/moms_box_white_sans_lumière.png') }}" class="d-inline-block#}
+{#                            align-top" width="40" height="40" alt="" loading="lazy">#}
+{#                                                                           X#}
+{#                            <hr class="hr-slogo">#}
+{#                            <span class="slogan">L'alliée des mamans</span>#}
                         </a>
                     </div>
         
@@ -188,14 +210,14 @@
                     <div class="d-flex flex-column main-slogo-footer">
                         <a class="navbar-brand font-allura slogo-footer" href="{{ path('home') }}" title="Retour à l'accueil">MY MOM'S B
                             <img src="{{ asset('assets/img/moms_box_white_sans_lumière.png') }}" class="d-inline-block
-                            align-top" width="40" height="40" alt="" loading="lazy">
+                            align-top img-slogo-footer" width="40" height="40" alt="" loading="lazy">
                             X
                             <hr class="hr-slogo">
                             <span class="slogan-footer">L'alliée des mamans</span>
                         </a>
                     </div>
 
-                    <div class="footer-links font-helvetica-thin">
+                    <div class="footer-links font-helvetica-thin mt-5">
                         <a href="#" class="link-1" title="Voir nos abonnements">Abonnements</a>
                         <a href="#" title="Voir nos Boxs">Nos Boxs</a>
                         <a href="{{ path('products') }}" title="Voir les produits Mom's Box">Boutique</a>

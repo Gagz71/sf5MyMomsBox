@@ -63,7 +63,8 @@ class RegisterType extends AbstractType
                 'label' => false,
                 'widget' => 'single_text',
                 'required' => false,
-                'placeholder' => 'Votre date de naissance'
+                'placeholder' => 'Votre date de naissance',
+		'help' => 'Saisissez votre date de naissance'
                 
             ])
             ->add('email', EmailType::class, [
@@ -88,7 +89,7 @@ class RegisterType extends AbstractType
                     'label' => false,
                     'attr' => [
                         'placeholder' => 'Mot de passe*'
-                    ]
+                    ],
                 ],
                 'second_options' => [
                     'label' => false,
@@ -125,7 +126,7 @@ class RegisterType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Je m\'inscris',
                 'attr' => [
-                    'class' => 'btn btn-outline-info'
+                    'class' => ' draw-border'
                 ]
             ])
         ;

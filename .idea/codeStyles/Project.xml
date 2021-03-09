@@ -3,10 +3,20 @@
     <HTMLCodeStyleSettings>
       <option name="HTML_UNIFORM_INDENT" value="true" />
     </HTMLCodeStyleSettings>
+    <codeStyleSettings language="CSS">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="8" />
+        <option name="TAB_SIZE" value="8" />
+        <option name="USE_TAB_CHARACTER" value="true" />
+        <option name="SMART_TABS" value="true" />
+      </indentOptions>
+    </codeStyleSettings>
     <codeStyleSettings language="HTML">
       <indentOptions>
         <option name="INDENT_SIZE" value="5" />
         <option name="TAB_SIZE" value="5" />
+        <option name="USE_TAB_CHARACTER" value="true" />
+        <option name="SMART_TABS" value="true" />
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="PHP">
@@ -14,14 +24,6 @@
         <option name="INDENT_SIZE" value="5" />
         <option name="CONTINUATION_INDENT_SIZE" value="5" />
         <option name="USE_TAB_CHARACTER" value="true" />
-      </indentOptions>
-    </codeStyleSettings>
-    <codeStyleSettings language="Twig">
-      <indentOptions>
-        <option name="INDENT_SIZE" value="5" />
-        <option name="TAB_SIZE" value="5" />
-        <option name="USE_TAB_CHARACTER" value="true" />
-        <option name="SMART_TABS" value="true" />
       </indentOptions>
     </codeStyleSettings>
   </code_scheme>

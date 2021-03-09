@@ -121,3 +121,9 @@ div.carousel-caption.text-left p.font-helvetica-thin{
         margin-top: 7rem;
     }
 }
+@media screen and (max-width: 400px){
+    .carousel{
+        margin-top: 3rem;
+        margin-bottom: 0;
+    }
+}

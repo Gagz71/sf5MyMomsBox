@@ -1,0 +1,38 @@
+<div class="row mt-5" id="nav-account" >
+	<div class="dc-morph-btns">
+		<ul>
+			<li >
+				{% if  is_granted('ROLE_ADMIN') %}
+					<a href="/admin" title="Accéder au back-office">
+						<img src="{{ asset('assets/img/management.png') }}" alt="icone admin">
+					</a>
+					<span>Accéder au back-office</span>
+				{% endif %}
+			</li>
+			<li>
+				<a href="{{ path('account_password') }}" title="Modifier votre mot de passe">
+					<img src="{{ asset('assets/img/password.png') }}" alt="icone modifier mot de passe">
+				</a>
+				<span id="span-password">Modifier mon mot de passe</span>
+			</li>
+			<li>
+				<a href="{{ path('account_address') }}" title="Gérer mes adresses">
+					<img src="{{ asset('assets/img/location.png') }}" alt="icone adresses">
+				</a>
+				<span id="span-adress">Gérer mes adresses de livraisons</span>
+			</li>
+			<li>
+				<a href="{{ path('account_subscription') }}" title="Voir mon abonnement">
+					<img src="{{ asset('assets/img/subscription.png') }}" alt="icone abonnement">
+				</a>
+				<span>Mon abonnement</span>
+			</li>
+			<li>
+				<a href="{{ path('account_order') }}" title="Voir mes commandes">
+					<img src="{{ asset('assets/img/delivery-box.png') }}" alt="icone commande">
+				</a>
+				<span>Mes commandes</span>
+			</li>
+		</ul>
+	</div>
+</div>

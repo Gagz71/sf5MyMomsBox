@@ -12,6 +12,8 @@ parameters:
     app.param.subscribe.trimester.price: '%env(SUBSCRIPTION_TRIMESTER_PRICE_ID)%'
     app.param.subscribe.semester.price: '%env(SUBSCRIPTION_SEMESTER_PRICE_ID)%'
     app.param.subscribe.year.price: '%env(SUBSCRIPTION_YEAR_PRICE_ID)%'
+    google_recaptcha_private_key: '%env(resolve:GOOGLE_RECAPTCHA_PRIVATE_KEY)%'
+
 
 services:
     # default configuration for services in *this* file

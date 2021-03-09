@@ -2,58 +2,75 @@
 
 {% block title %}Connexion à mon compte{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/style-auth.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h1 class="mb-3 ml-3 font-weight-normal font-allura">Connectez-vous à votre espace My Mom's Box</h1>
+    <div id="bg-login">
+        <div class="overlay col-12"> </div>
+        <div class="row" id="row-title-login">
+            <h1 class="mb-3  mt-5 font-weight-normal font-allura title-login">Connectez-vous à votre espace My Mom's Box</h1>
+        </div>
+        <div class="row">
+            <div class="col-4 m-auto">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-info">{{ message }}</div>
+                    {% endfor %}
 
-    <div class="row">
-        <div class="col-4">
-            <form method="post">
-                {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-                {% for message in app.flashes('notice') %}
-                    <div class="alert alert-info">{{ message }}</div>
-                {% endfor %}
+                    {% if app.user %}
+                        <div class="mb-3">
+                            Vous êtes déjà connecté {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                        </div>
+                    {% endif %}
 
-                {% if app.user %}
-                    <div class="mb-3">
-                        Vous êtes déjà connecté {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    <div class="form-group text-center font-helvetica-thin">
+                        <label for="inputEmail" class="label-login">Email</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
                     </div>
-                {% endif %}
+                    <div class="form-group text-center font-helvetica-thin mb-0">
+                        <label for="inputPassword" class="label-login">Mot de passe</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" required>
+                    </div>
+                    <div class="form-group text-center font-helvetica-thin">
+                        <small><a href="{{ path('reset_password') }}" title="Réinitialiser mon mot de passe" class="a-link">
+                                <img src="{{ asset('assets/img/forgot.png') }}" alt="">
+                                J'ai oublié mon mot de passe</a></small>
+                    </div>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}">
 
-                <div class="form-group text-center font-helvetica-thin">
-                    <label for="inputEmail">Email</label>
-                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control-sm" required autofocus>
-                </div>
-                <div class="form-group text-center font-helvetica-thin">
-                    <label for="inputPassword">Mot de passe</label>
-                    <input type="password" name="password" id="inputPassword" class="form-control-sm" required>
-                </div>
-                <div class="form-group text-center font-helvetica-thin">
-                    <small><a href="{{ path('reset_password') }}">J'ai oublié mon mot de passe</a></small>
-                </div>
+                    <div class="form-group text-center">
+                        <button class="pulse css-btn" type="submit" id="btn-login">
+                            <img src="{{ asset('assets/img/user.png') }}" alt="icone login">
+                            Je me connecte
+                        </button>
+                    </div>
+                    <div class="form-group d-flex flex-column">
+                        <small><p class="font-helvetica-thin mt-2 p-small-snow">Pas encore de compte ?</p></small>
+                        <small class="align-self-center"><a href="{{ path('app_register') }}" title="Créer un compte My Mom's Box" class="css-btn raise a-raise ">
+                                <img src="{{ asset('assets/img/add-user.png') }}" alt="icone ajout d'utilisateur">
+                                Je me créer un compte</a>
+                        </small>
+                    </div>
 
 
+                </form>
+            </div>
+            {#        <div class="col-6 offset-2">#}
+            {#            <img src="{{ asset('assets/img/moms_box_open_fond_transparent.png') }}" alt="Mom's Box ouverte" class="img-login">#}
+            {#        </div>#}
 
-                <input type="hidden" name="_csrf_token"
-                       value="{{ csrf_token('authenticate') }}">
-
-                <div class="form-group text-center">
-                    <button class="btn btn-sm btn-outline-info" type="submit">
-                        Je me connecte
-                    </button>
-                    <hr>
-                    <small><p class="font-helvetica-thin mt-3">Pas encore de compte ?<br>
-                        <a href="{{ path('app_register') }}">Je me créer un compte</a>
-                    </p></small>
-                </div>
-
-            </form>
         </div>
-        <div class="col-6 offset-2">
-            <img src="{{ asset('assets/img/moms_box_open_fond_transparent.png') }}" alt="Mom's Box ouverte" class="img-login">
-        </div>
-        
+
+
+
+
     </div>
+
 
 {% endblock %}

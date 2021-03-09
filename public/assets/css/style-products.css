@@ -75,15 +75,15 @@
 
 /*P.Boutique*/
 .btn-outline-info {
-    color: #B2961D;
-    border-color: #B2961D;
+    color: #dfbb00;
+    border-color: #dfbb00;
     font-family: "Helvetica NeueThin";
     letter-spacing: 0.5px;
 }
 .btn-outline-info:hover {
     color: black;
-    background-color: #B2961D;
-    border-color: #B2961D;
+    background-color: #d0ad00;
+    border-color: #d0ad00;
 }
 .form-group{
     font-family: "Helvetica NeueThin";

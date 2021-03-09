@@ -1,14 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block title %}Mon abonnement mensuel{% endblock %}
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('assets/css/style-delivery-subscribe.css') }}">
+ {% endblock %}
 {% block javascript %}
 <script src="https://js.stripe.com/v3/"></script>
 {% endblock %}
 
 {% block content %}
 
-    <h1 class="font-allura">Je choisis l'abonnement mensuel</h1>
+    {% if app.user.addresses|length == 0 %}
+        <div class="col-sm-8">
+            <h1 class="font-allura">Où souhaitez-vous être livrée ?</h1>
+            <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe">
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center">
+                Vous n'avez pas encore ajouté d'adresses de livraisons.
+                Merci d'en renseigner au moins une <a href="{{ path('account_address_add') }}" title="Ajouter une adresse">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
 
-    <button id="checkout-btn-price-monthly">Je confirme ma commande</button>
+        </div>
+
+             {% else %}
+        <h1 class="font-allura">Je choisis l'abonnement mensuel</h1>
+
+        <button id="checkout-btn-price-monthly" type="submit">Je confirme ma commande</button>
+
+
+    {% endif %}
+
 
 {% endblock %}
 

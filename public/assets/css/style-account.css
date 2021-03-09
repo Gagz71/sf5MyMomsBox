@@ -1,0 +1,180 @@
+/* utility */
+html.sr .load-hidden {
+    visibility: hidden;
+}
+/* extension */
+html.sr .widget {
+    visibility: hidden;
+}
+body{
+    background-image: url("../img/fond-dore-motif-fleur.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#row-reveal-title{
+    margin-top: 11rem;
+}
+.list-group-item{
+    background-color: transparent;
+}
+.title-account{
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+    font-size: 3.5rem;
+}
+#nav-account{
+    height: 50px;
+}
+
+
+/*Menus animés*/
+.dc-morph-btns {
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    width: 100%;
+    transform: translateX(-50%) translateY(-50%);
+    height:200px;
+    font-size: 1.4em;
+    line-height: 0.9em;
+    text-align: center;
+}
+.dc-morph-btns li {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    margin-right: 30px;
+    overflow: visible;
+
+}
+.dc-morph-btns li a {
+    position: absolute;
+    left: 0;
+    top:0;
+    z-index: 1;
+    background: #18181A;
+    border: 2px groove #e1b12c;
+    text-indent:0;
+    display:inline-block;
+    color:#888;
+    font-size:12px;
+    font-weight: 400;
+    text-decoration:none;
+    text-align:center;
+    text-transform: uppercase;
+    width: 70px;
+    height:70px;
+    transition: all 600ms cubic-bezier(0.190,1.000,0.220,1.000);
+    box-sizing: content-box;
+    border-radius: 50px;
+    background-clip: padding-box;
+}
+
+.dc-morph-btns li a:hover {
+    border: 2px groove snow;
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    background-clip: padding-box;
+    border-top-left-radius:40px;
+    border-top-right-radius:2px;
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+    transform: rotate(-45deg);
+}
+
+.dc-morph-btns ul li span {
+    position: absolute;
+    width: 80px;
+    bottom: -45px;
+    left:-5px;
+    display: none;
+    color: #fff;
+    opacity:0;
+    font-size: 0.7em;
+    text-align: center;
+    transition: all 0.5s;
+}
+.dc-morph-btns ul li a img{
+    position: relative;
+    top: 25%;
+}
+#span-password{
+    bottom: -65px;
+}
+#span-adress{
+    bottom: -65px;
+}
+.dc-morph-btns ul li:hover span {
+    display: block;
+    color:inherit;
+    opacity:1;
+    font-family: "Helvetica NeueThin";
+}
+
+/*Bouton contact*/
+.button-contact{
+    width: 50%;
+    align-self: end;
+}
+/**/
+a.animated-button:link:after, a.animated-button:visited:after {
+    content: "";
+    position: absolute;
+    height: 0%;
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    z-index: -1;
+    -webkit-transition: all 0.75s ease 0s;
+    -moz-transition: all 0.75s ease 0s;
+    -o-transition: all 0.75s ease 0s;
+    transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+    color: #FFF;
+    text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+    height: 450%;
+}
+
+a.animated-button.thar-three {
+    color: black;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: 3px groove black;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+    text-decoration: none;
+    text-align: center;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+a.animated-button.thar-three:hover {
+    color:snow;
+    background-color: transparent;
+    border: 3px groove darkgoldenrod;
+    text-decoration: none;
+}
+a.animated-button.thar-three:hover:before {
+    left: 0%;
+    right: auto;
+    width: 100%;
+}
+a.animated-button.thar-three:before {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    content: '';
+    background: black;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+.white-shadow:hover{
+    -webkit-box-shadow: -1px -1px 18px 0px snow;
+    -moz-box-shadow:    -1px -1px 18px 0px snow;
+    box-shadow:         -1px -1px 18px 0px snow;
+}

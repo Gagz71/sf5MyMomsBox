@@ -63,11 +63,13 @@
 .main-nav{
     width: 100%;
     line-height: 1;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 .main-slogo{
     line-height: 1;
     position: absolute;
+    display: flex;
+    flex-direction: column;
 }
 div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
     justify-content: space-evenly;
@@ -93,13 +95,213 @@ div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
     color: #B2961D;
 }
 
+/*Partie meilleures vente*/
+.h1-bestSale{
+    font-size: 70px;
+    margin-left: 8rem;
+    margin-bottom: 2rem;
+}
 .bg-ruban{
-    background-image: url("../img/ruban.png");
+    background-image: url("../img/slogans/Plan de travail 1.6.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     height: 50rem;
     background-position: top;
+}
+/*Partie Mom's Box du mois*/
+.card-effect{
+    border-radius: 16px;
+    width: 100%;
+    height: 360px;
+    background: url("../img/box_du_mois_fond_transparent.png");
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.85);
+}
+.card-effect:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.card-effect .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.card-effect .img span {
+    width: 100%;
+    height: 100%;
+    background: url("../img/box_du_mois_fond_transparent.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+.card-effect .img span:nth-child(1) {
+    background-position: center;
+    transition-delay: 0;
+}
+.card-effect .img span:nth-child(2) {
+    background-position: 33.33333%;
+    transition-delay: 0.1s;
+}
+.card-effect .img span:nth-child(3) {
+    background-position: 66.66666%;
+    transition-delay: 0.2s;
+}
+.card-effect .img span:nth-child(4) {
+    background-position: 100%;
+    transition-delay: 0.3s;
+}
+
+.card-effect:hover .img > span {
+    transform: translateY(-100%);
+}
+.card-effect:hover .content {
+    transform: translateY(0%);
+    transition: 1s;
+    transition-delay: 0.1s;
+}
+
+.content {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    padding: 20px 20px;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    font-family: "Helvetica NeueThin";
+}
+.text-2{
+    font-size: 15px;
+    top: -30px;
+    position: relative;
+    left: 18px;
+}
+.text-2 a{
+    color: black;
+}
+.text-2 a:hover{
+    text-decoration: none;
+}
+
+.p-how{
+    line-height: 2em;
+}
+
+/*Comment ça marche*/
+.h1-how{
+    font-size: 70px;
+    margin-left: 8rem;
+    margin-bottom: 2rem;
+}
+
+/*Bouton voir abonnement*/
+.row-btn-custom-2{
+    width: auto;
+    margin: auto;
+}
+@-webkit-keyframes topAnimation {
+    from {
+        transform: translate(0rem, 0);
+    }
+    to {
+        transform: translate(0rem, 3.5rem);
+    }
+}
+
+@keyframes topAnimation {
+    from {
+        transform: translate(0rem, 0);
+    }
+    to {
+        transform: translate(0rem, 3.5rem);
+    }
+}
+@-webkit-keyframes bottomAnimation {
+    from {
+        transform: translate(-11.5rem, 0);
+    }
+    to {
+        transform: translate(0rem, 0);
+    }
+}
+@keyframes bottomAnimation {
+    from {
+        transform: translate(-11.5rem, 0);
+    }
+    to {
+        transform: translate(0rem, 0);
+    }
+}
+.btn-custom-2 {
+    text-transform: uppercase;
+    font-family: "Helvetica NeueThin";
+    text-decoration: none;
+    font-weight: 700;
+    border: 0;
+    position: relative;
+    letter-spacing: 0.15em;
+    margin: 0 auto;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    outline: none;
+    font-size: 20px;
+    color: black;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
+}
+.btn-custom-2::after, .btn-custom-2::before {
+    border: 0;
+    content: "";
+    position: absolute;
+    height: 40%;
+    width: 10%;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: -2;
+    border-radius: 50%;
+}
+.btn-custom-2::before {
+    border: 0;
+    background-color: darkgoldenrod;
+    top: -0.75rem;
+    left: 0.5rem;
+    -webkit-animation: topAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s infinite alternate;
+    animation: topAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s infinite alternate;
+}
+.btn-custom-2::after {
+    background-color: black;
+    top: 3rem;
+    left: 13rem;
+    -webkit-animation: bottomAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s infinite alternate;
+    animation: bottomAnimation 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s infinite alternate;
+}
+.btn-custom-2:hover {
+    color: white;
+    text-decoration: none;
+}
+.btn-custom-2:hover::before, .btn-custom-2:hover::after {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    -webkit-animation: none;
+    animation: none;
+}
+.btn-custom-2:hover::after {
+    left: 0rem;
+}
+.btn-custom-2:hover::before {
+    top: 0.5rem;
+    left: 0.35rem;
 }
 
 /*Footer*/
@@ -109,7 +311,29 @@ div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
     text-align: left;
     padding: 10px 20px;
 }
+@keyframes down{
+    0% {position:relative; top:0px; opacity: 0}
+    50% {position:relative; top:15px; opacity: 0.5}
+    100% {position:relative; top:30px; opacity: 1}
 
+}
+
+.anim-arrow{
+    animation: down 1s infinite linear alternate;
+    width: 3%;
+}
+
+.bg-mombox{
+    background: url("../img/moms_box_white_sans_lumière.png");
+    height: 500px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+}
+div.row.mt-5.flex-column div.col-md-6.offset-1.flex-column form{
+    margin-top: 2em;
+}
 
 
 /* Footer left */
@@ -143,7 +367,6 @@ div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
 
 .footer-distributed .footer-links{
     color: rgba(0,0,0,.5);
-    margin: auto;
     padding: 0;
 }
 
@@ -162,8 +385,7 @@ div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
     color:  #222;
     font-size: 14px;
     font-weight: normal;
-    margin: 0;
-
+    margin-top: 4.5rem;
 }
 
 /* Footer Center */
@@ -362,10 +584,85 @@ div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
 }
 .form-control::placeholder{
     opacity: .5;
-    font-size: 13px;
+    font-size: 15px;
     font-family: "Helvetica NeueThin";
+    color: antiquewhite;
 }
 .form-control:focus{
     border-color: #B2961D;
     box-shadow: 0 0 0 .1rem #B2961D;
+}
+
+@media screen and (max-width: 400px) {
+    .navbar-light .navbar-toggler{
+        margin: auto;
+    }
+    .navbar-light .navbar-toggler-icon{
+        background-image: url("../img/moms_box_white_sans_lumière.png");
+    }
+    div.main-nav.d-flex ul.navbar-nav.font-helvetica-thin{
+        text-align: center;
+    }
+    .infos-log{
+        display: none;
+    }
+    .nav-log-basket{
+        margin-top: 1.5rem;
+    }
+    .main-slogo{
+        display: none;
+    }
+
+    .h1-bestSale{
+        margin: 0;
+        text-align: center;
+    }
+    html body main div.my-content.mb-5 div.row.flex-column h1.font-helvetica-bold.text-center.mb-5.text-uppercase{
+        font-size: 35px;
+    }
+    .h1-how{
+        margin-left: 2.5rem;
+    }
+    .img-box-black{
+        margin-left: 2rem;
+    }
+    .col-md-6 > form:nth-child(4){
+        max-width: 90%;
+    }
+    .bg-mombox{
+        height: 300px;
+        background-size: contain;
+    }
+    #contact_submit{
+        margin-bottom: 1rem;
+    }
+    .footer-distributed{
+        flex-direction: column;
+    }
+    .img-slogo-footer{
+        width: 30px;
+        height: 30px;
+    }
+    .hr-slogo{
+        width: 180px;
+    }
+    .slogo-footer{
+        margin: auto;
+    }
+    .footer-distributed{
+        padding: 0;
+        text-align: center;
+    }
+    .footer-distributed .footer-company-name{
+        position: absolute;
+        bottom: -641rem;
+    }
+    .footer-icons{
+        margin-left: 5rem;
+    }
+    .footer-info-contact{
+        margin: auto;
+    }
+
+
 }

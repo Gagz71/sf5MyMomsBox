@@ -1,38 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Contactez-nous{% endblock %}
+ {% block stylesheets %}
+	 <link rel="stylesheet" href="{{ asset('assets/css/style-contact.css') }}">
+ {% endblock %}
 
 {% block content %}
-	<div class="row flex-column">
-		<h1 class="font-allura text-center">Des questions ?</h1>
-		<h2 class="font-allura text-center">Contactez-nous en remplissant ce formulaire !</h2>
-	</div>
-	{% for message in app.flashes('notice') %}
-		<div class="alert alert-info">{{ message }}</div>
-	{% endfor %}
+	<div class="bg-contact">
+		<div class="overlay"></div>
+		<div class="row flex-column" id="div-title-contact">
+			<h1 class="font-allura text-center" id="title-contact">Des questions ?</h1>
+			<h2 class="font-allura text-center">Contactez-nous en remplissant ce formulaire !</h2>
+		</div>
+		{% if  app.flashes('notice') %}
+			{% for message in app.flashes('notice') %}
+				<div class="alert alert-info">{{ message }}</div>
+			{% endfor %}
+		{% endif %}
 
-	<div class="row">
-		<div class="col-md-8">{{ form(form) }}</div>
-		<div class="col-md-4">
-			<strong>My Mom's Box</strong>
-			<hr>
+		<div class="row">
 
-			<a title="Voir sur la carte" class="info-link d-flex flex-column" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-				<i class="fa fa-map-marker"></i> <span>15 rue de la prairie</span>   <span>71200 Le Creusot</span> </a>
-			<div class="row">
-				<div class="col">
-					<div class="collapse multi-collapse" id="multiCollapseExample1">
-						<iframe class="footer-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2731.533239832241!2d4.41384391480733!3d46.7938010517634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f24b93fcf41fe1%3A0xdbc16367b4fa8063!2s15%20Rue%20de%20la%20Prairie%2C%2071200%20Le%20Creusot!5e0!3m2!1sfr!2sfr!4v1605888736113!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			<div class="col-md-8">{{ form(form) }}</div>
+			<div class="col-md-4">
+				<strong>My Mom's Box</strong>
+				<hr>
+
+				<a title="Voir sur la carte" class="info-link d-flex flex-column" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+					<i class="fa fa-map-marker"></i> <span>15 rue de la prairie</span>   <span>71200 Le Creusot</span> </a>
+				<div class="row">
+					<div class="col">
+						<div class="collapse multi-collapse" id="multiCollapseExample1">
+							<iframe class="footer-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2731.533239832241!2d4.41384391480733!3d46.7938010517634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f24b93fcf41fe1%3A0xdbc16367b4fa8063!2s15%20Rue%20de%20la%20Prairie%2C%2071200%20Le%20Creusot!5e0!3m2!1sfr!2sfr!4v1605888736113!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+						</div>
 					</div>
 				</div>
+
+				<a href="tel:+33651852436" title="Contactez-nous par téléphone" class="info-link"><i class="fa fa-phone"></i>06.51.85.25.36.</a>
+
+				<a href="mailto:mymomsbox7@gmail.com" title="Contactez-nous par email" class="info-link"><i class="fa fa-envelope"></i>mymomsbox7@gmail.com</a></p>
+
 			</div>
-
-			<a href="tel:+33651852436" title="Contactez-nous par téléphone" class="info-link"><i class="fa fa-phone"></i>06.51.85.25.36.</a>
-
-			<a href="mailto:mymomsbox7@gmail.com" title="Contactez-nous par email" class="info-link"><i class="fa fa-envelope"></i>mymomsbox7@gmail.com</a></p>
-
 		</div>
 	</div>
+
 
 
 {% endblock %}

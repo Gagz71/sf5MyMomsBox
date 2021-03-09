@@ -1,16 +1,126 @@
 /*Page login*/
+#bg-login{
+    background-image: url("../img/Webp.net-resizeimage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    margin-top: -4rem;
+}
+.overlay{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000b3;
+    height: 1138px;
+}
+#row-title-login{
+    margin-top: 11rem;
+    justify-content: center;
+}
+.title-login{
+    color: snow;
+    font-size: 4rem;
+    z-index: 1;
+    text-shadow: 2px 2px 2px rgb(150, 150, 150);
+}
 div.form-group.text-center label{
     display: flex;
     flex-direction: column;
 }
-.img-login{
-    position: absolute;
-    bottom: 0;
-    width: 95%;
+.form-control{
+    width: 70%;
+    margin: auto;
 }
-.img-box-register{
-    position: absolute;
-    bottom: 0;
+.label-login{
+    color: snow;
+    font-size: 20px;
+}
+.a-link{
+    text-decoration: none;
+    color:#dfbb00;
+}
+.a-link:hover{
+    text-decoration: none;
+    color: snow;
+}
+.p-small-snow{
+    color: snow;
+    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+.pulse:hover,
+.pulse:focus {
+    -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+.pulse {
+    --color: #dfbb00;
+    --hover: darkgoldenrod;
+}
+.raise {
+    --color: #ffa260;
+    --hover: #dfbb00;
+}
+.raise:hover,
+.raise:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+}
+.css-btn{
+    background: none;
+    border: 1px groove;
+    border-radius: 4px;
+    font: inherit;
+    line-height: 1;
+    padding: 0.5em;
+    width: 70%;
+}
+.css-btn{
+    color: var(--color);
+    transition: 0.25s;
+}
+.css-btn:hover, .css-btn:focus {
+    border-color: var(--hover);
+    color: #fff;
+}
+.a-raise{
+    text-decoration: none;
+}
+.a-raise:hover{
+    text-decoration: none;
+}
+.form-control{
+    background-color: transparent;
+    color: white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px groove  #dfbb00;
+}
+.form-control:focus{
+    color: snow;
+    background-color: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px groove  #dfbb00;
 }
 
 /*P. mon-compte/adresses*/
@@ -45,6 +155,98 @@ div.form-group.text-center label{
     -webkit-transform: translateX(-4px);
     transform: translateX(-4px);
 }
+
+/*Page register*/
+#bg-register{
+    margin-top: 7.3rem;
+    background-image: url("../img/smart-home-assistant-smartphone-laptop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 1000px;
+}
+#title-register{
+    font-size: 4rem;
+    color: snow;
+    text-shadow: 2px 2px 2px rgb(150, 150, 150);
+}
+.form-check-label{
+    color: snow;
+}
+.form-check{
+    width: 70%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.g-recaptcha{
+    width: 50%;
+    margin: auto;
+}
+#register_birthdate_help{
+    margin: auto;
+    width: 70%;
+    color: antiquewhite !important;
+}
+
+/*Bouton submit*/
+.draw-border {
+    box-shadow: inset 0 0 0 4px #4d4d4d;
+    color: snow;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+    margin: auto;
+}
+.draw-border::before, .draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+.draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+.draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+.draw-border:hover {
+    color: #ffe593;
+}
+.draw-border:hover::before, .draw-border:hover::after {
+    border-color: #B2961D;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+.draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+}
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05rem;
+    display: flex;
+}
+.btn:focus {
+    outline: 2px dotted snow;
+}
+
+
+
+
+
+
 
 
 
