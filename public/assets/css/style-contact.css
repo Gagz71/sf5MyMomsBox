@@ -1,0 +1,24 @@
+.bg-contact{
+    margin-top: 7rem;
+    background-image: url("../img/pexels-olya-kobruseva-5428824.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#title-contact{
+    margin-top: 4rem;
+    font-size: 65px;
+    color: snow;
+    z-index: 1;
+    text-shadow: 2px 2px 2px rgb(150, 150, 150);
+}
+.overlay{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000b3;
+    height: 1138px;
+}

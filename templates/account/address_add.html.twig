@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une adresse{% endblock %}
+
+{% block content %}
+
+    <h1 class="font-allura">Gérer mes adresses de livraison</h1>
+
+
+    <a href="{{ path('account_address') }}" class="hvr-icon-back"><i class="fa fa-chevron-circle-left hvr-icon"></i> Retour</a>
+
+
+    <hr>
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-12 font-helvetica-bold">{{ form_row(form.name) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.firstname) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.lastname) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.company) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.address) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.zipCode) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.city) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.country) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.phone) }}</div>
+        <div class="col-md-6 font-helvetica-bold">{{ form_row(form.submit) }}</div>
+
+    </div>
+    {{ form_end(form) }}
+
+
+
+{% endblock %}

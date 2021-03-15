@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon abonnement mensuel{% endblock %}
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('assets/css/style-delivery-subscribe.css') }}">
+ {% endblock %}
+{% block javascript %}
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
+{% block content %}
+
+    {% if app.user.addresses|length == 0 %}
+        <div class="col-sm-8">
+            <h1 class="font-allura">Où souhaitez-vous être livrée ?</h1>
+            <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe">
+        </div>
+        <div class="col-sm-4">
+            <p class="text-center">
+                Vous n'avez pas encore ajouté d'adresses de livraisons.
+                Merci d'en renseigner au moins une <a href="{{ path('account_address_add') }}" title="Ajouter une adresse">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
+
+        </div>
+
+             {% else %}
+        <h1 class="font-allura">Je choisis l'abonnement mensuel</h1>
+
+        <button id="checkout-btn-price-monthly" type="submit">Je confirme ma commande</button>
+
+
+    {% endif %}
+
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+
+        var createCheckoutSession = function(priceId) {
+            return fetch("/mon-compte/je-m-abonne-mensuellement/create-session/{{ reference }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    priceId: priceId
+                })
+            }).then(function(result) {
+                return result.json();
+            });
+        };
+
+
+        var stripe = Stripe("pk_test_51HuFssLrKb2GsnXLvu61PHN3nMvmzFao73y4OJvZL5HnbvZrppyWJos8IkojsRSHHyYkEG5UaGURDKoQuvpir1Q8003rzxex6x");
+
+        var PriceId = 'price_1Hv3ioLrKb2GsnXLxBdgERHd';
+        document
+            .getElementById("checkout-btn-price-monthly")
+            .addEventListener("click", function(evt) {
+                createCheckoutSession(PriceId).then(function(data) {
+                    // Call Stripe.js method to redirect to the new Checkout page
+                    stripe
+                        .redirectToCheckout({
+                            sessionId: data.sessionId
+                        })
+                        .then(handleResult);
+                });
+            });
+
+    </script>
+{% endblock %}

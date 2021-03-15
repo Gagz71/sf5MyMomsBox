@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Je m'inscris{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/style-auth.css') }}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row" id="bg-register">
+        <div class="col-12 overlay"></div>
+        <div class="col-sm-6 m-auto">
+            <h1 class="font-allura text-center" id="title-register">Inscription à My Mom's Box</h1>
+
+            {% if notification %}
+                <div class="alert alert-info">{{ notification }}</div>
+            {% endif %}
+            {% if app.user %}
+                <div class="mb-3">
+                    Vous êtes déjà connecté {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                </div>
+            {% endif %}
+
+            <div class="d-flex flex-column" id="div-form-register">
+                {{ form_start(form) }}
+                {{ form_row(form.firstname) }}
+                {{ form_row(form.lastname) }}
+                {{ form_row(form.birthdate) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.plainPassword) }}
+                {{ form_row(form.agreeTerms) }}
+                {# Affichage du captcha avec la clé publique récupérée directement grâce à la passerelle faite dans twig.yaml #}
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
+                </div>
+
+{#                <div class="main">#}
+{#                <div class="sub-main">#}
+{#                    <button class="button-two"><span>Hover Me</span></button>#}
+{#                </div>#}
+                    {{ form_row(form.submit) }}
+
+
+                {{ form_end(form) }}
+            </div>
+
+        </div>
+    </div>
+    
+
+
+{% endblock %}
+{% block script %}
+    <script>
+
+    </script>
+{% endblock %}

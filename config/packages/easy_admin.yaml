@@ -1,0 +1,21 @@
+easy_admin:
+  formats:
+    date: 'd/m/Y'
+    time: 'H:i:s'
+    datetime: 'd/m/Y H:i:s'
+  site_name: 'Administration Générale - My Moms Box'
+  design:
+    form_theme:
+      - "@EasyAdmin/form/bootstrap_4.html.twig"
+      - '@VichUploader/Form/fields.html.twig'
+    brand_color: 'black'
+  entities:
+    Product:
+      class: App\Entity\Product
+      label: 'Produits'
+      list:
+        title: 'Liste des produits'
+        sort: ['id', 'ASC']
+      form:
+        fields:
+          - { property: 'illustration', type: 'vich_file',  }

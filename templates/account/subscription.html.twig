@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon abonnement{% endblock %}
+
+{% block content %}
+    <h1 class="font-allura">Mon abonnement My Mom's Box</h1>
+
+    <p class="font-helvetica-thin">C'est dans cet espace que vous allez pouvoir
+        gérer toutes vos commandes. </p>
+    <a href="{{ path('account') }}" class="hvr-icon-back"><i class="fa fa-chevron-circle-left hvr-icon"></i> Retour</a>
+
+    {% if subscriptions|length == 0 %}
+    <p class="text-center">
+        Vous n'avez pas encore d'abonnement My Mom's Box. <br>
+        <a href="{{ path('show_subscriptions') }}" title="Voir nos abonnements">Cliquez-ici </a>pour voir nos abonnements.</p>
+    {% else %}
+        {% for subscription in subscriptions %}
+            <div class="card border-info mb-3 ml-5" style="max-width: 18rem;">
+                <div class="card-header">Début d'abonnement: {{ subscription.subscriptionDate|date('d/m/Y') }}</div>
+                <div class="card-body text-info">
+                    <h5 class="card-title">Abonnement {{ subscription.name }}</h5>
+                    <p class="card-text text-right">{{ (subscription.price / 100)|number_format(2, '.', ',') }} €</p>
+                </div>
+                <div class="card-footer">
+                    <p class="font-helvetica-thin">Rendez-vous sur le portail billings pour gérer votre abonnement</p>
+
+                    <button id="manage-billing-form" name="submit">Mettre à jour mes informations</button>
+
+                </div>
+            </div>
+
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+
+        //Customer Portal
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get("stripeSessionId");
+        let customerId;
+
+        if (sessionId) {
+            fetch("/mon-compte/je-m-abonne/checkout-session/{{stripeSessionId}}")
+                .then(function (result) {
+                    return result.json()
+                })
+                .then(function (session) {
+                    // We store the customer ID here so that we can pass to the
+                    // server and redirect to customer portal. Note that, in practice
+                    // this ID should be stored in your database when you receive
+                    // the checkout.session.completed event. This demo does not have
+                    // a database, so this is the workaround. This is *not* secure.
+                    // You should use the Stripe Customer ID from the authenticated
+                    // user on the server.
+                    customerId = session.customer;
+
+                    var sessionJSON = JSON.stringify(session, null, 2);
+                    document.querySelector("pre").textContent = sessionJSON;
+                })
+                .catch(function (err) {
+                    console.log('Error when fetching Checkout session', err);
+                });
+        }
+
+
+        // In production, this should check CSRF, and not pass the session ID.
+        // The customer ID for the portal should be pulled from the
+        // authenticated user on the server.
+        const manageBillingForm = document.getElementById('manage-billing-form');
+        manageBillingForm.addEventListener('click', function (e) {
+            e.preventDefault();
+            fetch('/mon-compte/je-m-abonne/customer-portal/{{stripeSessionId}}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    sessionId: sessionId
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    window.location.href = data.url;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+
+    </script>
+
+{% endblock %}
+

@@ -1,0 +1,354 @@
+
+.shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    fill: transparent;
+    stroke:  #B2961D;
+    border-bottom: 5px solid black;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+.text {
+    font-size: 15px;
+    top: -30px;
+    position: relative;
+}
+.text a{
+    text-decoration: none;
+    color: black;
+    font-family: "Helvetica NeueThin";
+}
+.svg-wrapper:hover .shape {
+    stroke-width: 2px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 760;
+}
+
+/*Page vue produit*/
+/* Icon Down */
+@-webkit-keyframes hvr-icon-down {
+    0%,
+    50%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    25%,
+    75% {
+        -webkit-transform: translateY(6px);
+        transform: translateY(6px);
+    }
+}
+@keyframes hvr-icon-down {
+    0%,
+    50%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    25%,
+    75% {
+        -webkit-transform: translateY(6px);
+        transform: translateY(6px);
+    }
+}
+/* Icon Down */
+.hvr-icon-down {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-icon-down .hvr-icon {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.hvr-icon-down:hover .hvr-icon, .hvr-icon-down:focus .hvr-icon, .hvr-icon-down:active .hvr-icon {
+    -webkit-animation-name: hvr-icon-down;
+    animation-name: hvr-icon-down;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+/*P.Boutique*/
+.btn-outline-info {
+    color: #dfbb00;
+    border-color: #dfbb00;
+    font-family: "Helvetica NeueThin";
+    letter-spacing: 0.5px;
+}
+.btn-outline-info:hover {
+    color: black;
+    background-color: #d0ad00;
+    border-color: #d0ad00;
+}
+.form-group{
+    font-family: "Helvetica NeueThin";
+}
+
+/*Page show product*/
+.btn-add-cart{
+    color: black;
+}
+.btn-add-cart:hover{
+    text-decoration: none;
+    color: #B2961D;
+}
+
+.border-animation {
+    --border-width: 0.1em;
+    --animation-speed: 0.5s;
+    --color: #B2961D;
+    color: var(--color);
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    -webkit-transform: scale(1, 0.8);
+    transform: scale(1, 0.8);
+    border: var(--border-width) solid transparent;
+}
+.border-animation .border-animation__inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    padding: 0.2em;
+    background: #333;
+    z-index: 1;
+    border: solid var(--border-width) transparent;
+}
+.border-animation:before, .border-animation:after {
+    content: '';
+    position: absolute;
+    background: var(--color);
+}
+.border-animation:focus:before, .border-animation:hover:before {
+    -webkit-animation: beforeBorders var(--animation-speed) forwards ease-in-out;
+    animation: beforeBorders var(--animation-speed) forwards ease-in-out;
+}
+.border-animation:focus:after, .border-animation:hover:after {
+    -webkit-animation: afterBorders var(--animation-speed) forwards ease-in-out;
+    animation: afterBorders var(--animation-speed) forwards ease-in-out;
+}
+.border-animation:focus, .border-animation:hover {
+    -webkit-animation: borderColors var(--animation-speed) steps(1) forwards;
+    animation: borderColors var(--animation-speed) steps(1) forwards;
+    outline: none;
+}
+.border-animation:focus .border-animation__inner, .border-animation:hover .border-animation__inner {
+    -webkit-animation: background calc(var(--animation-speed) / 5 * 3) forwards ease-in-out;
+    animation: background calc(var(--animation-speed) / 5 * 3) forwards ease-in-out;
+    -webkit-animation-delay: calc(var(--animation-speed) / 5 * 2);
+    animation-delay: calc(var(--animation-speed) / 5 * 2);
+}
+
+@-webkit-keyframes beforeBorders {
+    0% {
+        top: calc(var(--border-width) * -1);
+        left: 50%;
+        bottom: auto;
+        right: auto;
+        width: 0;
+        height: var(--border-width);
+    }
+    33% {
+        top: calc(var(--border-width) * -1);
+        left: calc(var(--border-width) * -1);
+        bottom: auto;
+        right: auto;
+        width: calc(var(--border-width) + 50%);
+        height: var(--border-width);
+    }
+    66% {
+        top: calc(var(--border-width) * -1);
+        left: calc(var(--border-width) * -1);
+        bottom: auto;
+        right: auto;
+        width: var(--border-width);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+    100% {
+        top: auto;
+        left: calc(var(--border-width) * -1);
+        bottom: calc(var(--border-width) * -1);
+        right: auto;
+        width: calc(var(--border-width) + 50%);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+}
+
+@keyframes beforeBorders {
+    0% {
+        top: calc(var(--border-width) * -1);
+        left: 50%;
+        bottom: auto;
+        right: auto;
+        width: 0;
+        height: var(--border-width);
+    }
+    33% {
+        top: calc(var(--border-width) * -1);
+        left: calc(var(--border-width) * -1);
+        bottom: auto;
+        right: auto;
+        width: calc(var(--border-width) + 50%);
+        height: var(--border-width);
+    }
+    66% {
+        top: calc(var(--border-width) * -1);
+        left: calc(var(--border-width) * -1);
+        bottom: auto;
+        right: auto;
+        width: var(--border-width);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+    100% {
+        top: auto;
+        left: calc(var(--border-width) * -1);
+        bottom: calc(var(--border-width) * -1);
+        right: auto;
+        width: calc(var(--border-width) + 50%);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+}
+@-webkit-keyframes afterBorders {
+    0% {
+        top: calc(var(--border-width) * -1);
+        left: auto;
+        bottom: auto;
+        right: 50%;
+        width: 0;
+        height: var(--border-width);
+    }
+    33% {
+        top: calc(var(--border-width) * -1);
+        left: auto;
+        bottom: auto;
+        right: calc(var(--border-width) * -1);
+        width: calc(var(--border-width) + 50%);
+        height: var(--border-width);
+    }
+    66% {
+        top: calc(var(--border-width) * -1);
+        left: auto;
+        bottom: auto;
+        right: calc(var(--border-width) * -1);
+        width: var(--border-width);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+    100% {
+        top: auto;
+        left: auto;
+        bottom: calc(var(--border-width) * -1);
+        right: calc(var(--border-width) * -1);
+        width: calc(var(--border-width) + 50%);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+}
+@keyframes afterBorders {
+    0% {
+        top: calc(var(--border-width) * -1);
+        left: auto;
+        bottom: auto;
+        right: 50%;
+        width: 0;
+        height: var(--border-width);
+    }
+    33% {
+        top: calc(var(--border-width) * -1);
+        left: auto;
+        bottom: auto;
+        right: calc(var(--border-width) * -1);
+        width: calc(var(--border-width) + 50%);
+        height: var(--border-width);
+    }
+    66% {
+        top: calc(var(--border-width) * -1);
+        left: auto;
+        bottom: auto;
+        right: calc(var(--border-width) * -1);
+        width: var(--border-width);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+    100% {
+        top: auto;
+        left: auto;
+        bottom: calc(var(--border-width) * -1);
+        right: calc(var(--border-width) * -1);
+        width: calc(var(--border-width) + 50%);
+        height: calc((var(--border-width) * 2) + 100%);
+    }
+}
+@-webkit-keyframes borderColors {
+    0% {
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    33% {
+        border-top-color: var(--color);
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    66% {
+        border-top-color: var(--color);
+        border-right-color: var(--color);
+        border-bottom-color: transparent;
+        border-left-color: var(--color);
+    }
+    100% {
+        border-top-color: var(--color);
+        border-right-color: var(--color);
+        border-bottom-color: var(--color);
+        border-left-color: var(--color);
+    }
+}
+@keyframes borderColors {
+    0% {
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    33% {
+        border-top-color: var(--color);
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+    66% {
+        border-top-color: var(--color);
+        border-right-color: var(--color);
+        border-bottom-color: transparent;
+        border-left-color: var(--color);
+    }
+    100% {
+        border-top-color: var(--color);
+        border-right-color: var(--color);
+        border-bottom-color: var(--color);
+        border-left-color: var(--color);
+    }
+}
+@-webkit-keyframes background {
+    to {
+        background: #555;
+        text-shadow: 0 0.1em 0.1em #111;
+    }
+}
+@keyframes background {
+    to {
+        background: #555;
+        text-shadow: 0 0.1em 0.1em #111;
+    }
+}
+@media (min-width: 850px) {
+    body {
+        -webkit-box-pack: center;
+        justify-content: center;
+    }
+}

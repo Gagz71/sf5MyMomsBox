@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('assets/css/style-account.css') }}">
+ {% endblock %}
+
+{% block content %}
+
+    <div class="bg-account">
+
+        <div class="row" id="row-reveal-title">
+            <h1 class="font-allura m-auto headline load-hidden title-account">Bonjour {{ app.user.firstname }}</h1>
+        </div>
+        <div class="row">
+            <h5 class="font-helvetica-thin tagline ml-5 mt-5 mb-5">Bienvenue dans votre espace My Mom's Box<br>
+               C'est ici que vous allez pouvoir gérer les informations liées à votre compte.</h5>
+        </div>
+
+        {% include 'account/navbar-user-connected.html.twig' %}
+
+        <div class="row mt-5">
+            <div class="col-4 offset-7 d-flex flex-column">
+
+                <h1 class="font-allura text-right">Besoin d'aide ?</h1>
+
+                <div class="button-contact white-shadow">
+                    <a href="{{ path('contact') }}" class="font-helvetica-bold  btn-sm animated-button thar-three">Contactez-nous <img src="{{ asset('assets/img/contact-form.png') }}" alt=""></a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    
+{% endblock %}
+{% block script %}
+    <script>
+        ScrollReveal().reveal('.headline', { duration: 2000 });
+        ScrollReveal().reveal('.tagline', { delay: 1000 });
+        ScrollReveal().reveal('.widget', { interval: 200 });
+    </script>
+{% endblock %}
