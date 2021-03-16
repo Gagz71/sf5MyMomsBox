@@ -10,14 +10,17 @@
 {% block content %}
 
     {% if app.user.addresses|length == 0 %}
-        <div class="col-sm-8">
-            <h1 class="font-allura">Où souhaitez-vous être livrée ?</h1>
-            <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe">
+        <div class="row flex-column">
+            <h1 class="font-allura big-title ml-5 mb-0">Où souhaitez-vous être livrée ?</h1>
+            <div class="col-8 m-auto">
+                <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe img-fluid">
+
+            </div>
         </div>
-        <div class="col-sm-4">
-            <p class="text-center">
+        <div class="col-sm-5 mt-5 float-right">
+            <p class="text-center lead">
                 Vous n'avez pas encore ajouté d'adresses de livraisons.
-                Merci d'en renseigner au moins une <a href="{{ path('account_address_add') }}" title="Ajouter une adresse">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
+                Merci d'en renseigner au moins une en cliquant  <a href="{{ path('account_address_add') }}" title="Ajouter une adresse" class="link-to-delivery">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
 
         </div>
 

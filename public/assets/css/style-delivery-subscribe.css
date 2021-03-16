@@ -1,3 +1,15 @@
 .delivery-subscribe{
-	width: 100%;
+	width: 85%;
+}
+.big-title{
+	font-size: 3rem;
+}
+.link-to-delivery{
+	color: inherit;
+	font-weight: 400;
+	text-shadow: 1px 1px 1px black;
+}
+.link-to-delivery:hover{
+	color: darkgoldenrod;
+	text-decoration: none;
 }
