@@ -1,8 +1,16 @@
+/* utility */
+html.sr .load-hidden {
+	visibility: hidden;
+}
+/* extension */
+html.sr .widget {
+	visibility: hidden;
+}
 .delivery-subscribe{
 	width: 85%;
 }
 .big-title{
-	font-size: 3rem;
+	font-size: 3.5rem;
 }
 .link-to-delivery{
 	color: inherit;
@@ -12,4 +20,103 @@
 .link-to-delivery:hover{
 	color: darkgoldenrod;
 	text-decoration: none;
+}
+.my-content{
+	margin-top: 7rem;
+	background-image: url("../img/motif_fleur_blanc.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.delivery-title{
+	font-size: 5rem;
+	color: #D9B064;
+	text-shadow: 1px 1px 1px #D9B064;
+	margin-bottom: 0;
+}
+
+.hvr-icon-back {
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	-webkit-transition-duration: 0.1s;
+	transition-duration: 0.1s;
+	color: #1d2124;
+}
+.hvr-icon-back .hvr-icon {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-transition-duration: 0.1s;
+	transition-duration: 0.1s;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+.hvr-icon-back:hover .hvr-icon, .hvr-icon-back:focus .hvr-icon, .hvr-icon-back:active .hvr-icon {
+	-webkit-transform: translateX(-4px);
+	transform: translateX(-4px);
+	color: darkgoldenrod;
+}
+.hvr-icon-back:hover{
+	text-decoration: none;
+	color: darkgoldenrod;
+}
+
+.style-hr-1{
+	overflow: visible; /* For IE */
+	padding: 0;
+	border: none;
+	border-top: medium double #333;
+	color: #333;
+	text-align: center;
+	width: 75%;
+}
+.style-hr-1:after{
+	content: "\273D";
+	display: inline-block;
+	position: relative;
+	top: -0.7em;
+	font-size: 1.5em;
+	padding: 0 0.25em;
+	background: #F5F5F5;
+}
+form{
+	width: 100%;
+}
+.form-group{
+	margin-bottom: 2rem;
+}
+label{
+	margin-bottom: .2rem;
+	font-family: "Helvetica NeueBd", serif;
+}
+.delivery-btn:hover,
+.delivery-btn:focus {
+	box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+}
+
+.delivery-btn{
+	background: none;
+	border: 1px groove;
+	font: inherit;
+	line-height: 1;
+	margin: 0.5em;
+	padding: .5em .5em;
+}
+.delivery-btn{
+	box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+}
+.delivery-btn{
+	--color: #dfbb00;
+	--hover: #46feb3;
+}
+.button {
+	color: var(--color);
+	transition: 0.25s;
+}
+.button:hover, button:focus {
+	border-color: var(--hover);
+	color: #fff;
 }

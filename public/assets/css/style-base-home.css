@@ -580,16 +580,20 @@ div.row.mt-5.flex-column div.col-md-6.offset-1.flex-column form{
 
 /*Formulaires*/
 .form-control{
-    border: 1px groove #B2961D;
+    background-color: transparent;
+    color: white;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px groove #dfbb00;
 }
 .form-control::placeholder{
     opacity: .5;
     font-size: 15px;
     font-family: "Helvetica NeueThin";
-    color: antiquewhite;
 }
 .form-control:focus{
-    border-color: #B2961D;
+    border-bottom: 1px groove #B2961D;
     box-shadow: 0 0 0 .1rem #B2961D;
 }
 

@@ -1,24 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mes adresses{% endblock %}
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('assets/css/style-delivery-subscribe.css') }}">
+ {% endblock %}
 
 {% block content %}
+    <div class="container-fluid pt-5">
 
-    <a href="{{ path('account_address_add') }}" class="btn btn-outline-info float-right font-helvetica-thin" title="Ajouter une adresse de livraison">Ajouter une adresse</a>
+        <div class="row">
 
-    <h1 class="font-allura">Mes adresses</h1>
+            <div class="col-sm-5 m-auto text-center">
+                <h1 class="font-allura delivery-title">Mes adresses</h1>
 
-    <p class="font-helvetica-thin">C'est dans cet espace que vous allez pouvoir
-        gérer vos adresses. </p>
+                <p class="font-helvetica-thin">C'est dans cet espace que vous allez pouvoir
+                    gérer vos adresses de livraisons. </p>
+            </div>
+        </div>
+
+
+
+
+
     <a href="{{ path('account') }}" class="hvr-icon-back"><i class="fa fa-chevron-circle-left hvr-icon"></i> Retour</a>
 
-
-    <hr>
-
     {% if app.user.addresses|length == 0 %}
-        <p class="text-center">
-        Vous n'avez pas encore ajouté d'adresses de livraisons.
-        Veuillez <a href="{{ path('account_address_add') }}" title="Ajouter une adresse"> cliquez-ici </a>pour en ajouter une.</p>
+
+        <div class="row flex-column mt-5">
+            <h1 class="font-allura big-title ml-5 mb-0">Où souhaitez-vous être livrée ?</h1>
+            <div class="col-8 m-auto">
+                <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe img-fluid">
+            </div>
+        </div>
+        <div class="col-sm-5 mt-5 float-right">
+            <p class="text-center lead">
+                Vous n'avez pas encore ajouté d'adresses de livraisons.
+                Merci d'en renseigner au moins une en cliquant  <a href="{{ path('account_address_add') }}" title="Ajouter une adresse" class="link-to-delivery">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
+
+        </div>
+
     {% else %}
         <div class="row">
             {% for address in app.user.addresses %}
@@ -36,6 +56,12 @@
                 </div>
             {% endfor %}
 
+        </div>
+
+        <div class="float-right">
+            <a href="{{ path('account_address_add') }}" class="btn btn-outline-info float-right font-helvetica-thin" title="Ajouter une adresse de livraison">Ajouter une adresse</a>
+
+        </div>
         </div>
 
     {% endif %}

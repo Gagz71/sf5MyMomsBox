@@ -61,7 +61,7 @@
     
     </head>
     {#Si le carousel n'est pas déclaré, alors ajout d'un margin-top#}
-    <body style="{% if block('carousel') is not defined %}margin-top:13rem;{% endif %}">
+    <body>
         <header>
             <!--Ma navbar-->
             <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light" id="remontada">
@@ -189,12 +189,8 @@
             {% endif %}
 
 
-            <!-- Marketing messaging and featurettes
-            ================================================== -->
-            <!-- Wrap the rest of the page in another container to center all the content. -->
 
-
-            <div class="my-content mb-5">
+            <div class="my-content">
 
             {% block content %}
 

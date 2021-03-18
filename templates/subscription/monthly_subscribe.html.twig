@@ -5,37 +5,56 @@
  {% endblock %}
 {% block javascript %}
 <script src="https://js.stripe.com/v3/"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 {% endblock %}
 
 {% block content %}
-
+    <div class="container-fluid pt-5">
     {% if app.user.addresses|length == 0 %}
-        <div class="row flex-column">
-            <h1 class="font-allura big-title ml-5 mb-0">Où souhaitez-vous être livrée ?</h1>
+
+        <div class="row flex-column" id="reveal-title-month">
+            <div class="col-12 ml-5 pt-5 mb-0">
+                <h1 class="font-allura big-title load-hidden headline">Où souhaitez-vous être livrée ?</h1>
+            </div>
+
             <div class="col-8 m-auto">
-                <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe img-fluid">
+                <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe img-fluid widget">
+            </div>
+
+            <div class="col-sm-5 mt-5 offset-6">
+                <p class="text-center lead tagline">
+                    Vous n'avez pas encore ajouté d'adresses de livraisons.
+                    Merci d'en renseigner au moins une en cliquant  <a href="{{ path('account_address_add') }}" title="Ajouter une adresse" class="link-to-delivery">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
 
             </div>
-        </div>
-        <div class="col-sm-5 mt-5 float-right">
-            <p class="text-center lead">
-                Vous n'avez pas encore ajouté d'adresses de livraisons.
-                Merci d'en renseigner au moins une en cliquant  <a href="{{ path('account_address_add') }}" title="Ajouter une adresse" class="link-to-delivery">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
+
 
         </div>
-
-             {% else %}
+    {% else %}
         <h1 class="font-allura">Je choisis l'abonnement mensuel</h1>
 
         <button id="checkout-btn-price-monthly" type="submit">Je confirme ma commande</button>
 
 
     {% endif %}
+    </div>
+
+
+
 
 
 {% endblock %}
 
 {% block script %}
+    <!--ScrollReveal-->
+    <script>
+        ScrollReveal().reveal('.headline', { duration: 2000 });
+        ScrollReveal().reveal('.tagline', { delay: 1000 });
+        ScrollReveal().reveal('.widget', { delay: 200 });
+    </script>
+
+
+    <!--Stripe-->
     <script type="text/javascript">
 
         var createCheckoutSession = function(priceId) {

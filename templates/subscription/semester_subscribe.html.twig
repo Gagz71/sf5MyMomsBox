@@ -1,20 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Mon abonnement semestriel{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/style-delivery-subscribe.css') }}">
+{% endblock %}
 
 {% block javascript %}
 <script src="https://js.stripe.com/v3/"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
 {% endblock %}
 
 {% block content %}
-    <h1 class="font-allura">Je profite de l'abonnement semestriel</h1>
-    <button id="checkout-btn-price-semester">Je confirme ma commande</button>
+
+    <div class="container-fluid pt-5">
+    {% if app.user.addresses|length == 0 %}
+
+        <div class="row flex-column" id="reveal-title-semester">
+            <div class="col-12 ml-5 pt-5 mb-0">
+                <h1 class="font-allura big-title load-hidden headline">Où souhaitez-vous être livrée ?</h1>
+            </div>
+
+            <div class="col-8 m-auto">
+                <img src="{{ asset('assets/img/livraison_camion_moms_box.png') }}" alt="livraison moms box" class="delivery-subscribe img-fluid widget">
+            </div>
+
+            <div class="col-sm-5 mt-5 offset-6">
+                <p class="text-center lead tagline">
+                    Vous n'avez pas encore ajouté d'adresses de livraisons.
+                    Merci d'en renseigner au moins une en cliquant  <a href="{{ path('account_address_add') }}" title="Ajouter une adresse" class="link-to-delivery">ici </a> afin de poursuivre votre demande d'abonnement mensuel.</p>
+
+            </div>
 
 
+        </div>
+    {% else %}
+
+        <h1 class="font-allura">Je profite de l'abonnement semestriel</h1>
+        <button id="checkout-btn-price-semester">Je confirme ma commande</button>
+    {% endif %}
+    </div>
 {% endblock %}
 
 {% block script %}
 
+    <!--ScrollReveal-->
+    <script>
+        ScrollReveal().reveal('.headline', { duration: 2000 });
+        ScrollReveal().reveal('.tagline', { delay: 1000 });
+        ScrollReveal().reveal('.widget', { delay: 200 });
+    </script>
+
+    <!--Stripe-->
     <script type="text/javascript">
         var createCheckoutSession = function(priceId) {
             return fetch("/mon-compte/je-m-abonne-semestriel/create-session/{{ reference }}", {
