@@ -6,6 +6,50 @@ html.sr .load-hidden {
 html.sr .widget {
 	visibility: hidden;
 }
+body{
+	background-color: #232327;
+}
+/*
+Fonds si app.user.adresses vide
+*/
+#reveal-title-semester{
+	background-image: url("../img/motif_fleur_blanc.png");
+	background-size: cover;
+	height: 100%;
+}
+#reveal-title-month{
+	background-image: url("../img/motif_fleur_blanc.png");
+	background-size: cover;
+	height: 100%;
+}
+#reveal-title-trimester{
+	background-image: url("../img/motif_fleur_blanc.png");
+	background-size: cover;
+	height: 100%;
+}
+#reveal-title-year{
+	background-image: url("../img/motif_fleur_blanc.png");
+	background-size: cover;
+	height: 100%;
+}
+/*Fond ajouter adresse */
+#main-bg-adress-add{
+	background-image: url("../img/motif_fleur_blanc.png");
+	background-size: cover;
+	height: 100%;
+}
+/*Bouton submit page ajouter adresse*/
+#address_submit{
+	background: none;
+	border: 1px groove #dfbb00;
+	color: darkgoldenrod;
+	width: 30%;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+#address_submit:hover{
+	color: snow;
+}
 .delivery-subscribe{
 	width: 85%;
 }
@@ -23,17 +67,21 @@ html.sr .widget {
 }
 .my-content{
 	margin-top: 7rem;
-	background-image: url("../img/motif_fleur_blanc.png");
+	background-image: url("../img/motif_transparent_fond_fleur.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 .delivery-title{
-	font-size: 5rem;
-	color: #D9B064;
-	text-shadow: 1px 1px 1px #D9B064;
+	font-size: 6rem;
+	color: #B2961D;
+	text-shadow: 1px 1px 1px #B2961D;
 	margin-bottom: 0;
 }
-
+.delivery-subtitle{
+	color: white;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+}
 .hvr-icon-back {
 	display: inline-block;
 	vertical-align: middle;
@@ -42,7 +90,7 @@ html.sr .widget {
 	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 	-webkit-transition-duration: 0.1s;
 	transition-duration: 0.1s;
-	color: #1d2124;
+	color: whitesmoke;
 }
 .hvr-icon-back .hvr-icon {
 	-webkit-transform: translateZ(0);
@@ -125,4 +173,135 @@ code{
 }
 .form-control{
 	color: black;
+}
+
+/*Cards Adresses*/
+.card {
+	display: flex;
+	background-color: #2A2E2F;
+	border-radius: 10px;
+	box-shadow: -1rem 0 3rem #000;
+	/*   margin-left: -50px; */
+	transition: 0.4s ease-out;
+	position: relative;
+	left: 0px;
+}
+.card-title{
+	letter-spacing: 0.75px;
+}
+
+.card:not(:first-child) {
+	margin-left: -50px;
+}
+
+.card:hover {
+	transform: translateY(-20px);
+	transition: 0.4s ease-out;
+}
+
+.card:hover ~ .card {
+	position: relative;
+	left: 50px;
+	transition: 0.4s ease-out;
+}
+
+.btn {
+	border-radius: 4px;
+	border: 2px groove  #009CD0;
+	color: #009CD0;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 0.25em;
+	overflow: hidden;
+	position: relative;
+	text-decoration: none;
+	line-height: 1;
+	width: 50%;
+}
+.btn .btn-content {
+	font-size: 1em;
+	line-height: 1.2;
+	position: relative;
+	right: 0;
+	transition: right 300ms ease;
+	display: block;
+	text-align: left;
+}
+.btn .icon {
+	border-left: 1px solid #009CD0;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 50%;
+	transition: all 300ms ease;
+	transform: translateY(-50%);
+	width: 20%;
+	height: 70%;
+}
+.btn .icon i {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.btn:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: #009CD0;
+	opacity: 0;
+	transition: opacity 300ms ease;
+}
+
+.fa-edit::before{
+	color: #009CD0;
+}
+.btn:hover .btn-content {
+	right: 100%;
+}
+.btn:hover .icon {
+	border-left: 0;
+	font-size: 1.8em;
+	width: 100%;
+}
+.btn:hover:after {
+	opacity: 0.2;
+}
+.btn.btn-alt-color {
+	border-color: #eb4d4b;
+	color: #eb4d4b;
+}
+.btn.btn-alt-color .icon {
+	border-left-color: #eb4d4b;
+}
+.btn.btn-alt-color:after {
+	background-color: #eb4d4b;
+}
+
+/*Bouton ajouter une adresse*/
+.add-button{
+	color: var(--color);
+	transition: 0.25s;
+	background: none;
+	border: 2px groove;
+	font: inherit;
+	line-height: 1;
+	margin: 0.5em;
+	padding: .5em .5em;
+	border-radius: 4px;
+}
+.raise:hover,
+.raise:focus {
+	box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+	transform: translateY(-0.25em);
+}
+.raise {
+	--color: #1dd1a1;
+	--hover: #e5ff60;
+}
+.raise:hover{
+	text-decoration: none;
+	color: #e5ff60;
 }

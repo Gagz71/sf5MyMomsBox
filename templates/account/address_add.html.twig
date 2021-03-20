@@ -6,7 +6,7 @@
  {% endblock %}
 
 {% block content %}
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5" id="main-bg-adress-add">
 
         <div class="row" id="">
 
@@ -54,8 +54,8 @@
                 <div class="col-md-6">{{ form_row(form.phone) }}</div>
             </div>
 
-            <div class="row m-auto">
-                <div class="col-md-6 button ">{{ form_row(form.submit) }}</div>
+            <div class="row justify-content-end">
+                <div class="col-5 button ">{{ form_row(form.submit) }}</div>
             </div>
 
                 {{ form_end(form) }}

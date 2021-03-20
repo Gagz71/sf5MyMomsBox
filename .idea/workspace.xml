@@ -25,7 +25,10 @@
     <list default="true" id="e79bb33b-f730-4d0e-ac74-7f553ca79138" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/style-delivery-subscribe.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style-delivery-subscribe.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/AddressType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AddressType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/account/address.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/address.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/address_add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/address_add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/subscription/monthly_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/monthly_subscribe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/subscription/semester_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/semester_subscribe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/subscription/trimester_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/trimester_subscribe.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/subscription/year_subscribe.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/subscription/year_subscribe.html.twig" afterDir="false" />
@@ -174,6 +177,9 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1k8zStfHhTW9EWYcZsk2gGIwEoO" />
@@ -275,7 +281,8 @@
       <workItem from="1615911789304" duration="6962000" />
       <workItem from="1615972730921" duration="14075000" />
       <workItem from="1616051170985" duration="2000" />
-      <workItem from="1616052130280" duration="13709000" />
+      <workItem from="1616052130280" duration="27893000" />
+      <workItem from="1616258697179" duration="8698000" />
     </task>
     <servers />
   </component>
